@@ -910,6 +910,141 @@
                 padding: 50px 5%;
             }
         }
+
+        /* --- New Sections: Stats & Academic Achievements --- */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 60px 8%;
+            text-align: center;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 5px;
+            display: block;
+        }
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .stat-desc {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+
+        /* Academic Achievements */
+        .academic-section {
+            background: #fff;
+            padding: 80px 8%;
+        }
+        .academic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .academic-card {
+            background: var(--light);
+            padding: 35px;
+            border-radius: 15px;
+            border: 1px solid var(--gray-border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .academic-card h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid var(--secondary-light);
+            padding-bottom: 12px;
+        }
+        .academic-card h3 i {
+            color: var(--secondary);
+        }
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .achievement-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .achievement-list li::before {
+            content: "\f058"; /* FontAwesome check-circle */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--secondary);
+        }
+
+        /* Floating WhatsApp Chat Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 85px; /* Sits comfortably above the mobile sticky footer on mobile */
+            right: 25px;
+            background-color: #25d366;
+            color: white !important;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
+            z-index: 1500;
+            transition: 0.3s;
+        }
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1) rotate(5deg);
+        }
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 95px; /* Raise slightly higher on small screens to clear mobile footer */
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 26px;
+            }
+            .academic-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        /* --- End of New Sections Styles --- */
     </style>
 </head>
 <body>
@@ -996,6 +1131,33 @@
     </div>
 </div>
 
+<!-- Key Impact Metrics (Statistics Counter Grid) -->
+<div class="stats-section">
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span class="stat-number">8+</span>
+            <span class="stat-label" lang="en">Years of Experience</span>
+            <span class="stat-label" lang="gu">વર્ષનો અનુભવ</span>
+            <p class="stat-desc" lang="en">Providing clinical precision and care</p>
+            <p class="stat-desc" lang="gu">ચોક્કસ નિદાન અને દર્દીઓની શ્રેષ્ઠ સંભાળ</p>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">10,000+</span>
+            <span class="stat-label" lang="en">Patients Treated</span>
+            <span class="stat-label" lang="gu">દર્દીઓની સારવાર</span>
+            <p class="stat-desc" lang="en">Empathetic and evidence-based medicine</p>
+            <p class="stat-desc" lang="gu">સહાનુભૂતિપૂર્વક અને પુરાવા-આધારિત સારવાર</p>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">200+</span>
+            <span class="stat-label" lang="en">Complex Neuro Patients Managed</span>
+            <span class="stat-label" lang="gu">જટિલ ન્યુરો દર્દીઓનું સફળ સંચાલન</span>
+            <p class="stat-desc" lang="en">Handling intricate autoimmune and stroke cases</p>
+            <p class="stat-desc" lang="gu">જટિલ ઓટોઈમ્યુન અને સ્ટ્રોકના કેસોની સચોટ સારવાર</p>
+        </div>
+    </div>
+</div>
+
 <!-- Professional Profile & Education Timeline -->
 <section id="profile">
     <div class="profile-container">
@@ -1026,6 +1188,72 @@
                     <small>BJ Medical College, Ahmedabad (2016)</small>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Academic Achievements Section -->
+<section class="academic-section">
+    <h2 lang="en">Academic Achievements & Honors</h2>
+    <h2 lang="gu">શૈક્ષણિક સિદ્ધિઓ અને સન્માન</h2>
+
+    <div class="academic-grid">
+        <!-- Card 1: Prestigious Honors -->
+        <div class="academic-card">
+            <h3>
+                <i class="fas fa-award"></i>
+                <span lang="en">Awards & Honors</span>
+                <span lang="gu">પુરસ્કાર અને બહુમાન</span>
+            </h3>
+            <ul class="achievement-list">
+                <li>
+                    <strong lang="en">Gold Medal in DM Neurology</strong>
+                    <strong lang="gu">DM ન્યુરોલોજીમાં ગોલ્ડ મેડલ</strong>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="en">Awarded for securing top rank in Delhi at ABVIMS & Dr. RML Hospital.</p>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="gu">દિલ્હીના ABVIMS અને ડૉ. RML હોસ્પિટલ ખાતે પ્રથમ સ્થાન મેળવવા બદલ એનાયત કરવામાં આવ્યો.</p>
+                </li>
+                <li>
+                    <strong lang="en">Surath Mohandas Award (IANCON 2025)</strong>
+                    <strong lang="gu">સુરથ મોહનદાસ એવોર્ડ (IANCON 2025)</strong>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="en">Secured 1st Prize in Autoimmune Neurology at the prestigious Indian Academy of Neurology national conference.</p>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="gu">પ્રતિષ્ઠિત ઇન્ડિયન એકેડેમી ઓફ ન્યુરોલોજીની રાષ્ટ્રીય પરિષદમાં ઓટોઈમ્યુન ન્યુરોલોજીમાં પ્રથમ પુરસ્કાર મેળવ્યો.</p>
+                </li>
+                <li>
+                    <strong lang="en">Top Rank in Medical Education</strong>
+                    <strong lang="gu">મેડિકલ શિક્ષણમાં ટોપ રેન્ક</strong>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="en">Consistent academic excellence throughout MBBS at BJMC and MD at SVP Hospital.</p>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="gu">BJMC ખાતે MBBS અને SVP હોસ્પિટલ ખાતે MD અભ્યાસ દરમિયાન સતત ઉત્કૃષ્ટ શૈક્ષણિક પ્રદર્શન.</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Card 2: Research and Publications -->
+        <div class="academic-card">
+            <h3>
+                <i class="fas fa-book-open"></i>
+                <span lang="en">Research & Publications</span>
+                <span lang="gu">સંશોધન અને પ્રકાશનો</span>
+            </h3>
+            <ul class="achievement-list">
+                <li>
+                    <strong lang="en">National Presentations</strong>
+                    <strong lang="gu">રાષ્ટ્રીય સ્તરે પ્રસ્તુતિઓ</strong>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="en">Presented advanced research in autoimmune neurology at multiple premier national forums.</p>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="gu">ઘણા અગ્રણી રાષ્ટ્રીય મંચો પર ઓટોઈમ્યુન ન્યુરોલોજી વિષય પર અદ્યતન સંશોધનો રજૂ કર્યા છે.</p>
+                </li>
+                <li>
+                    <strong lang="en">Scientific Journals Publication</strong>
+                    <strong lang="gu">વૈજ્ઞાનિક જર્નલ પ્રકાશન</strong>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="en">Authored and co-authored papers in respected indexed medical journals covering stroke and neuroimmunological disorders.</p>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="gu">લકવો (સ્ટ્રોક) અને ચેતાતંત્ર સંબંધિત જટિલ રોગો પર ઇન્ડેક્ષ્ડ મેડિકલ જર્નલમાં લેખો પ્રકાશિત કર્યા છે.</p>
+                </li>
+                <li>
+                    <strong lang="en">Specialized Research Interest</strong>
+                    <strong lang="gu">વિશેષ સંશોધન રસ</strong>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="en">Active clinical studies focusing on the recovery of post-stroke and autoimmune neuro-illness patients.</p>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="gu">સ્ટ્રોક પછી અને ઓટોઈમ્યુન ન્યુરો બીમારીના દર્દીઓના ઝડપી રિકવરી અભ્યાસ પર સક્રિય કાર્ય.</p>
+                </li>
+            </ul>
         </div>
     </div>
 </section>
@@ -1310,7 +1538,7 @@
                 3. You will receive an Access Key in your email.
                 4. Replace "YOUR_ACCESS_KEY_HERE" below with that key.
             -->
-            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <input type="hidden" name="access_key" value="1812d679-2d13-42ed-8dc8-901565895ace">
             <input type="hidden" name="subject" value="New Query from Dr. Atri Patel Website">
             <input type="checkbox" name="botcheck" id="" style="display: none;">
 
@@ -1473,8 +1701,8 @@
             <p lang="en">Follow us on our social platforms for medical tips and neurology updates.</p>
             <p lang="gu">તબીબી માર્ગદર્શન અને દૈનિક ટિપ્સ મેળવવા સોશિયલ મીડિયા પર જોડાઓ.</p>
             <div class="footer-social-icons">
-                <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://instagram.com/YOUR_PROFILE" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/dr-atri-patel-a97914aa/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/dratripatel.neuro/" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://youtube.com/YOUR_PROFILE" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
@@ -1485,6 +1713,11 @@
         <p><span lang="en">Bilingual Portal (ENG / GUJ)</span><span lang="gu">દ્વિભાષી પોર્ટલ (ENG / GUJ)</span></p>
     </div>
 </footer>
+
+<!-- Floating WhatsApp Chat Button -->
+<a href="https://wa.me/919909904012?text=Hello%20Dr.%20Atri%20Patel,%20I%20have%20a%20neurological%20query%20and%20would%20like%20to%20consult%20you." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 <!-- Mobile Sticky Booking Bar -->
 <a href="tel:+919909904012" class="mobile-bar">
