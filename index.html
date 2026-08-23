@@ -83,8 +83,9 @@
         nav {
             background: white;
             padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            row-gap: 12px;
             align-items: center;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
             position: sticky;
@@ -92,6 +93,7 @@
             z-index: 1000;
         }
         .logo-box {
+            grid-column: 1 / -1;
             line-height: 1.3;
             text-decoration: none;
             display: flex;
@@ -125,6 +127,7 @@
             font-weight: 500;
         }
         .nav-links {
+            grid-column: 1;
             display: flex;
             gap: 20px;
             list-style: none;
@@ -142,6 +145,7 @@
             color: var(--secondary);
         }
         .nav-right {
+            grid-column: 2;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -357,12 +361,25 @@
 
         /* Timeline */
         .edu-timeline {
+            position: relative;
             display: grid;
             grid-template-columns: 1fr;
             gap: 18px;
             margin-top: 25px;
+            padding-left: 42px;
+        }
+        .edu-timeline::before {
+            content: "";
+            position: absolute;
+            top: 28px;
+            bottom: 28px;
+            left: 10px;
+            width: 3px;
+            border-radius: 3px;
+            background: var(--secondary);
         }
         .edu-card {
+            position: relative;
             background: white;
             padding: 20px 24px;
             border-radius: 12px;
@@ -373,9 +390,26 @@
             border-right: 1px solid var(--gray-border);
             border-bottom: 1px solid var(--gray-border);
         }
+        .edu-card::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: -39px;
+            z-index: 1;
+            width: 18px;
+            height: 18px;
+            box-sizing: border-box;
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            background: white;
+            transition: transform 0.3s;
+        }
         .edu-card:hover {
             transform: translateX(5px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+        }
+        .edu-card:hover::before {
+            transform: translateX(-5px);
         }
         .edu-card b {
             font-size: 1.15rem;
@@ -531,6 +565,14 @@
             color: var(--secondary);
             margin-right: 6px;
         }
+        .hospital-address-link {
+            color: inherit;
+            text-decoration: none;
+        }
+        .hospital-address-link:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
 
         .quick-contact-card {
             background: var(--primary-dark);
@@ -588,31 +630,6 @@
         .contact-detail-text a:hover {
             color: var(--accent);
         }
-        .map-btn {
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            padding: 14px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-align: center;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            font-size: 1rem;
-            margin-top: 15px;
-        }
-        .map-btn:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-        }
-
         /* Raise a Question Form */
         .form-section-container {
             max-width: 850px;
@@ -851,27 +868,6 @@
             color: var(--secondary);
         }
 
-        /* Trust Badges */
-        .trust-grid {
-            display: flex;
-            justify-content: flex-start;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-        .trust-badge {
-            background: rgba(255,255,255,0.08);
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #cbd5e1;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid rgba(255,255,255,0.15);
-        }
-
         /* Footer & Socials */
         footer {
             background: var(--dark);
@@ -934,6 +930,10 @@
             font-size: 0.95rem;
             margin: 10px 0;
         }
+        .footer-col .footer-email {
+            font-size: 0.82rem;
+            white-space: nowrap;
+        }
         .footer-col ul {
             list-style: none;
             padding: 0;
@@ -957,7 +957,8 @@
             gap: 15px;
             margin-top: 20px;
         }
-        .footer-social-icons a {
+        .footer-social-icons a,
+        .footer-social-icons .social-icon {
             color: #94a3b8;
             font-size: 1.3rem;
             transition: 0.3s;
@@ -969,7 +970,8 @@
             align-items: center;
             justify-content: center;
         }
-        .footer-social-icons a:hover {
+        .footer-social-icons a:hover,
+        .footer-social-icons .social-icon:hover {
             color: white;
             background: var(--secondary);
             transform: translateY(-3px);
@@ -1228,10 +1230,10 @@
                     <span lang="hi">अपॉइंटमेंट बुक करें</span>
                 </a>
                 <a href="tel:+919558525253" class="hero-btn-secondary">
-                    <i class="fas fa-phone-alt"></i>
+                    <i class="fab fa-whatsapp"></i>
                     <span lang="en">Call: +91 95585 25253</span>
                     <span lang="gu">કોલ કરો: +91 95585 25253</span>
-                    <span lang="hi">कॉल करें: +91 95585 25253</span>
+                    <span lang="hi">કॉल करें: +91 95585 25253</span>
                 </a>
             </div>
         </div>
@@ -1248,16 +1250,16 @@
             <span class="stat-label" lang="hi">वर्षों का अनुभव</span>
         </div>
         <div class="stat-card">
-            <span class="stat-number">5,000+</span>
-            <span class="stat-label" lang="en">Neurology Patients Treated</span>
-            <span class="stat-label" lang="gu">ન્યુરો દર્દીઓની સફળ સારવાર</span>
-            <span class="stat-label" lang="hi">न्यूरो रोगियों का सफल इलाज</span>
+            <span class="stat-number">10000+</span>
+            <span class="stat-label" lang="en">Patients Treated</span>
+            <span class="stat-label" lang="gu">દર્દીઓની સારવાર</span>
+            <span class="stat-label" lang="hi">रोगियों का इलाज</span>
         </div>
         <div class="stat-card">
-            <span class="stat-number">24x7</span>
-            <span class="stat-label" lang="en">Emergency Neuro Care</span>
-            <span class="stat-label" lang="gu">ઇમરજન્સી સેવાઓ</span>
-            <span class="stat-label" lang="hi">इमरजेंसी सेवाएं</span>
+            <span class="stat-number">200+</span>
+            <span class="stat-label" lang="en">Complex Neurological Patients Managed</span>
+            <span class="stat-label" lang="gu">જટિલ ન્યુરોલોજીકલ દર્દીઓનું સંચાલન</span>
+            <span class="stat-label" lang="hi">जटिल न्यूरोलॉजिकल रोगियों का प्रबंधन</span>
         </div>
     </div>
 </div>
@@ -1273,9 +1275,9 @@
             <h2 lang="gu" style="text-align:left; margin-bottom: 25px;">તબીબી પરિચય</h2>
             <h2 lang="hi" style="text-align:left; margin-bottom: 25px;">चिकित्सकीय परिचय</h2>
 
-            <p lang="en">Dr. Atri Patel is a distinguished Consultant Neurophysician practicing in Ahmedabad. With advanced post-doctoral DM training from ABVIMS & Dr. RML Hospital, New Delhi where he graduated as Gold Medalist, Dr. Patel brings cutting-edge clinical expertise to managing complex central and peripheral nervous system conditions.</p>
-            <p lang="gu">ડૉ. અત્રિ પટેલ અમદાવાદના પ્રતિષ્ઠિત કન્સલ્ટન્ટ ન્યુરોફિઝિશિયન છે. તેમણે આર.એમ.એલ. હોસ્પિટલ, નવી દિલ્હીમાંથી DM ન્યુરોલોજીમાં ગોલ્ડ મેડલ પ્રાપ્ત કર્યો છે. તેઓ મગજ, નસ, કરોડરજ્જુ અને સ્નાયુઓની અદ્યતન તબીબી સારવાર પૂરી પાડે છે.</p>
-            <p lang="hi">डॉ. अत्रि पटेल अहमदाबाद के प्रसिद्ध कंसल्टेंट न्यूरोफिजिशियन हैं। उन्होंने आरएमएल अस्पताल, नई दिल्ली से डीएम न्यूरोलॉजी में गोल्ड मेडल हासिल किया है। वे मस्तिष्क, नसों और रीढ़ की हड्डी के जटिल विकारों का सटीक इलाज प्रदान करते हैं।</p>
+            <p lang="en">Dr. Atri Patel is a Consultant Neurophysician and DM Neurology Gold Medalist in Ahmedabad, providing expert care for disorders of the brain, nerves, spine, and muscles.</p>
+            <p lang="gu">ડૉ. અત્રિ પટેલ અમદાવાદના કન્સલ્ટન્ટ ન્યુરોફિઝિશિયન અને DM ન્યુરોલોજી ગોલ્ડ મેડાલિસ્ટ છે. તેઓ મગજ, નસ, કરોડરજ્જુ અને સ્નાયુઓના રોગોની નિષ્ણાત સારવાર આપે છે.</p>
+            <p lang="hi">डॉ. अत्रि पटेल अहमदाबाद के कंसल्टेंट न्यूरोफिजिशियन और DM न्यूरोलॉजी गोल्ड मेडलिस्ट हैं। वे मस्तिष्क, नसों, रीढ़ की हड्डी और मांसपेशियों के रोगों की विशेषज्ञ देखभाल प्रदान करते हैं।</p>
 
             <div class="edu-timeline">
                 <div class="edu-card">
@@ -1335,7 +1337,7 @@
                     <strong lang="en">DM Neurology Gold Medal Honors</strong>
                     <strong lang="gu">DM ન્યુરોલોજી ગોલ્ડ મેડલ સન્માન</strong>
                     <strong lang="hi">DM न्यूरोलॉजी गोल्ड मेडल सम्मान</strong>
-                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="en">Secured top academic distinction in DM Neurology examination at ABVIMS & Dr. RML Hospital, New Delhi.</p>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="en">Secured top academic distinction in DM Neurology examination at ABVIMS & Dr. RML Hospital, New Delhi (CGGSIPU university).</p>
                     <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="gu">નવી દિલ્હીમાં ન્યુરોલોજી સુપર-સ્પેશિયાલિટીમાં સર્વોચ્ચ ગુણ સાથે ગોલ્ડ મેડલ મેળવ્યો.</p>
                     <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="hi">नई दिल्ली में न्यूरोलॉजी परीक्षा में सर्वोच्च अंक प्राप्त कर गोल्ड मेडल से सम्मानित।</p>
                 </li>
@@ -1348,7 +1350,7 @@
                 <i class="fas fa-file-alt"></i>
                 <span lang="en">Publications & Presentations</span>
                 <span lang="gu">પ્રકાશનો અને સંશોધન પત્રો</span>
-                <span lang="hi">प्रकाशन एवं शोध पत्र</span>
+                <span lang="hi">પ્રકાશન एवं शोध पत्र</span>
             </h3>
             <ul class="achievement-list">
                 <li>
@@ -1367,6 +1369,7 @@
                     <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="gu">IANCON 2025 માં NMOSD દર્દીઓમાં બોધનાત્મક મૂલ્યાંકન વિષય પર પેપર રજૂઆત.</p>
                     <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="hi">IANCON 2025 में NMOSD के रोगियों में संज्ञानात्मक मूल्यांकन विषय पर प्रस्तुति।</p>
                 </li>
+                <li><strong>AAN video Gallery publication</strong></li>
             </ul>
         </div>
     </div>
@@ -1409,7 +1412,7 @@
         <div class="spec-card">
             <i class="fas fa-head-side-virus"></i>
             <div class="spec-text">
-                <span class="spec-title" lang="en">Migraine & Headache Clinic</span>
+                <span class="spec-title" lang="en">Migraine & Headache</span>
                 <span class="spec-title" lang="gu">આધાશીશી અને માથાનો દુખાવો</span>
                 <span class="spec-title" lang="hi">माइग्रेन एवं सिरदर्द</span>
                 <span class="spec-desc" lang="en">Targeted therapies for chronic migraine, tension headaches, cluster headaches, and facial pain.</span>
@@ -1422,7 +1425,7 @@
         <div class="spec-card">
             <i class="fas fa-user-clock"></i>
             <div class="spec-text">
-                <span class="spec-title" lang="en">Alzheimer's & Memory Disorders</span>
+                <span class="spec-title" lang="en">Alzheimer's & Memory Related Disorders</span>
                 <span class="spec-title" lang="gu">અલ્ઝાઈમર અને યાદશક્તિની નબળાઈ</span>
                 <span class="spec-title" lang="hi">अल्जाइमर एवं भूलने की बीमारी</span>
                 <span class="spec-desc" lang="en">Specialized care for age-related memory loss, dementia, confusion, and cognitive impairment.</span>
@@ -1550,9 +1553,11 @@
                 <h4><i class="fas fa-hospital"></i> SAL Hospital, Ahmedabad</h4>
                 <p>
                     <i class="fas fa-map-marker-alt"></i>
-                    <span lang="en">Drive-In Road, Opp. Doordarshan Kendra, Thaltej, Ahmedabad, Gujarat 380054</span>
-                    <span lang="gu">ડ્રાઇવ-ઇન રોડ, દૂરદર્શન કેન્દ્ર સામે, થલતેજ, અમદાવાદ, ગુજરાત ૩૮૦૦૫૪</span>
-                    <span lang="hi">ड्राइव-इन रोड, दूरदर्शन केंद्र के सामने, थलतेज, अहमदाबाद, गुजरात 380054</span>
+                    <a class="hospital-address-link" href="https://maps.app.goo.gl/HtcPnLVzHQKQWoP88" target="_blank" rel="noopener noreferrer">
+                        <span lang="en">Opp. Science City Road, Sola, Ahmedabad, Gujarat 380060, India</span>
+                        <span lang="gu">સાયન્સ સિટી રોડ સામે, સોલા, અમદાવાદ, ગુજરાત ૩૮૦૦૬૦, ભારત</span>
+                        <span lang="hi">साइंस सिटी रोड के सामने, सोला, अहमदाबाद, गुजरात 380060, भारत</span>
+                    </a>
                 </p>
                 <p>
                     <i class="fas fa-calendar-alt"></i>
@@ -1562,12 +1567,36 @@
                 </p>
                 <p>
                     <i class="fas fa-clock"></i>
-                    <span lang="en"><b>Timing:</b> 10:00 AM – 04:00 PM</span>
-                    <span lang="gu"><b>સમય:</b> સવારે ૧૦:૦૦ થી સાંજે ૪:૦૦</span>
-                    <span lang="hi"><b>समय:</b> सुबह 10:00 बजे से शाम 4:00 बजे</span>
+                    <span lang="en"><b>Timing:</b> 9:00 AM – 1:00 PM and 4:00 PM – 8:00 PM</span>
+                    <span lang="gu"><b>સમય:</b> સવારે ૯:૦૦ થી બપોરે ૧:૦૦ અને સાંજે ૪:૦૦ થી રાત્રે ૮:૦૦</span>
+                    <span lang="hi"><b>समय:</b> सुबह 9:00 से दोपहर 1:00 और शाम 4:00 से रात 8:00</span>
                 </p>
             </div>
 
+            <!-- Location 2: Rhythm Hospital -->
+            <div class="hospital-card">
+                <h4><i class="fas fa-hospital"></i> Rhythm Hospital</h4>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a class="hospital-address-link" href="https://share.google/aYPiTrBXLcghqIzf0" target="_blank" rel="noopener noreferrer">
+                        <span lang="en">Hanumanth Plaza, Kadi, Gujarat 384440</span>
+                        <span lang="gu">હનુમંથ પ્લાઝા, કડી, ગુજરાત ૩૮૪૪૪૦</span>
+                        <span lang="hi">हनुमंथ प्लाज़ा, कड़ी, गुजरात 384440</span>
+                    </a>
+                </p>
+                <p>
+                    <i class="fas fa-calendar-alt"></i>
+                    <span lang="en"><b>OPD Day:</b> Tuesday</span>
+                    <span lang="gu"><b>દિવસ:</b> મંગળવાર</span>
+                    <span lang="hi"><b>दिन:</b> मंगलवार</span>
+                </p>
+                <p>
+                    <i class="fas fa-clock"></i>
+                    <span lang="en"><b>Timing:</b> 9:00 AM – 12:00 PM</span>
+                    <span lang="gu"><b>સમય:</b> સવારે ૯:૦૦ થી બપોરે ૧૨:૦૦</span>
+                    <span lang="hi"><b>समय:</b> सुबह 9:00 से दोपहर 12:00</span>
+                </p>
+            </div>
         </div>
 
         <div class="quick-contact-card">
@@ -1577,7 +1606,7 @@
                 <h3 lang="hi">संपर्क विवरण</h3>
 
                 <div class="contact-detail-item">
-                    <i class="fas fa-phone-alt"></i>
+                    <i class="fab fa-whatsapp"></i>
                     <div class="contact-detail-text">
                         <h5 lang="en">Direct Appointment Helpline</h5>
                         <h5 lang="gu">એપોઈન્ટમેન્ટ હેલ્પલાઇન</h5>
@@ -1602,23 +1631,16 @@
                         <h5 lang="en">OPD Hours</h5>
                         <h5 lang="gu">ઓપીડી સમય</h5>
                         <h5 lang="hi">ओपीडी का समय</h5>
-                        <p lang="en">Mon - Sat: 10:00 AM - 4:00 PM</p>
-                        <p lang="gu">સોમ - શનિ: સવારે ૧૦:૦૦ થી સાંજે ૪:૦૦</p>
-                        <p lang="hi">सोम - शनि: सुबह 10:00 से शाम 4:00</p>
-                        <strong style="color: var(--accent); display: block; font-size: 0.95rem; margin-top: 5px;" lang="en">24x7 Stroke & Brain Emergency Line</strong>
+                        <p lang="en">Mon - Sat: 9:00 AM - 1:00 PM and 4:00 PM - 8:00 PM</p>
+                        <p lang="gu">સોમ - શનિ: સવારે ૯:૦૦ થી બપોરે ૧:૦૦ અને સાંજે ૪:૦૦ થી રાત્રે ૮:૦૦</p>
+                        <p lang="hi">सोम - शनि: सुबह 9:00 से दोपहर 1:00 और शाम 4:00 से रात 8:00</p>
+                        <strong style="color: var(--accent); display: block; font-size: 0.95rem; margin-top: 5px;" lang="en">24* 7 Stroke & Emergency Services</strong>
                         <strong style="color: var(--accent); display: block; font-size: 0.95rem; margin-top: 5px;" lang="gu">૨૪x૭ સ્ટ્રોક અને ન્યુરો ઇમરજન્સી હેલ્પલાઇન</strong>
                         <strong style="color: var(--accent); display: block; font-size: 0.95rem; margin-top: 5px;" lang="hi">24x7 स्ट्रोक एवं न्यूरो इमरजेंसी हेल्पलाइन</strong>
                     </div>
                 </div>
             </div>
 
-            <!-- Google Map Action Button -->
-            <button class="map-btn" onclick="openMapLink()">
-                <i class="fas fa-map-marked-alt"></i>
-                <span lang="en">Open SAL Hospital on Google Maps</span>
-                <span lang="gu">ગૂગલ મેપ પર હોસ્પિટલનું લોકેશન જુઓ</span>
-                <span lang="hi">गूगल मैप पर अस्पताल की लोकेशन देखें</span>
-            </button>
         </div>
     </div>
 </section>
@@ -1643,7 +1665,7 @@
         </div>
 
         <div class="gallery-card">
-            <img src="conf_1.jpeg" alt="Dr. Atri Patel presenting paper at IANCON 2025" style="width: 100%; height: 220px; object-fit: cover;">
+            <img src="conf_1.jpeg" alt="Dr. Atri Patel presenting paper at IANCON 2025" style="width: 100%; height: 220px; object-fit: cover; object-position: center 25%;">
             <div class="gallery-info">
                 <h4 lang="en">Platform Presentation at IANCON 2025</h4>
                 <h4 lang="gu">IANCON 2025 સ્ટેજ પ્રેઝન્ટેશન</h4>
@@ -1770,7 +1792,8 @@
                         <span lang="hi">पसंदीदा अस्पताल</span>
                     </label>
                     <select id="location" name="location" required>
-                        <option value="SAL Hospital (Drive-In Road)">SAL Hospital (Drive-In Road, Thaltej)</option>
+                        <option value="SAL Hospital (Science City)">SAL Hospital (Science City)</option>
+                        <option value="Rhythm Hospital (Kadi)">Rhythm Hospital (Kadi)</option>
                     </select>
                 </div>
                 <!-- Preferred Date -->
@@ -1778,7 +1801,7 @@
                     <label for="date">
                         <span lang="en">Preferred Appointment Date</span>
                         <span lang="gu">પસંદગીની તારીખ</span>
-                        <span lang="hi">पसंदीदा तारीख</span>
+                        <span lang="hi">પસંદગીની તારીખ</span>
                     </label>
                     <input type="date" id="date" name="date" required>
                 </div>
@@ -1813,13 +1836,10 @@
                 <div class="footer-logo-icon">AP</div>
                 <div class="footer-logo-text">Dr. Atri Patel</div>
             </div>
-            <p lang="en">Consultant Neurophysician | DM Neurology Gold Medalist. Combining clinical precision with compassionate neurological care in Ahmedabad.</p>
-            <p lang="gu">કન્સલ્ટન્ટ ન્યુરોફિઝિશિયન | ગોલ્ડ મેડાલિસ્ટ.</p>
-            <p lang="hi">कंसल्टेंट न्यूरोफिजिशियन | गोल्ड मेडलिस्ट।</p>
+            <p lang="en">Consultant Neurophysician | DM Neurology Gold Medalist.<br></p>
+            <p lang="gu">કન્સલ્ટન્ટ ન્યુરોફિઝિશિયન | ગોલ્ડ મેડાલિસ્ટ.<br></p>
+            <p lang="hi">कंसल्टेंट न्यूरोफिजिशियन | गोल्ड मेडलिस्ट।<br></p>
 
-            <div class="trust-grid">
-                <span class="trust-badge"><i class="fas fa-award" style="color: var(--accent);"></i> Surath Mohandas Award</span>
-            </div>
         </div>
 
         <div class="footer-col">
@@ -1829,34 +1849,33 @@
             <ul>
                 <li><a href="#about"><span lang="en">About Dr. Atri Patel</span><span lang="gu">તબીબી પરિચય</span><span lang="hi">परिचय</span></a></li>
                 <li><a href="#services"><span lang="en">Services & Specialties</span><span lang="gu">સારવાર અને સેવાઓ</span><span lang="hi">सेवाएं</span></a></li>
-                <li><a href="#locations"><span lang="en">OPD Timings</span><span lang="gu">ઓપીડી સમય</span><span lang="hi">ओपीडी समय</span></a></li>
+                <li><a href="#locations"><span lang="en">OPD Timings</span><span lang="gu">ઓપીડી સમય</span><span lang="hi">ઓપીડી સમય</span></a></li>
                 <li><a href="#faq"><span lang="en">FAQs</span><span lang="gu">પ્રશ્નોત્તરી</span><span lang="hi">प्रश्न-उत्तर</span></a></li>
                 <li><a href="#contact"><span lang="en">Book Appointment</span><span lang="gu">એપોઈન્ટમેન્ટ</span><span lang="hi">अपॉइंटमेंट</span></a></li>
+                <li><a href="#gallery"><span lang="en">Gallery</span><span lang="gu">ગેલેરી</span><span lang="hi">ગેલરી</span></a></li>
             </ul>
         </div>
 
         <div class="footer-col">
             <h4 lang="en">Hospitals & OPD</h4>
             <h4 lang="gu">હોસ્પિટલ માહિતી</h4>
-            <h4 lang="hi">अस्पताल जानकारी</h4>
-            <p><i class="fas fa-hospital" style="margin-right:8px; color: var(--secondary);"></i> SAL Hospital, Thaltej, Ahmedabad</p>
-            <p><i class="fas fa-phone-alt" style="margin-right:8px; color: var(--secondary);"></i> +91 95585 25253</p>
-            <p><i class="fas fa-envelope" style="margin-right:8px; color: var(--secondary);"></i> dratripatel.neurology@gmail.com</p>
-            <p><i class="fas fa-clock" style="margin-right:8px; color: var(--secondary);"></i> Mon - Sat: 10:00 AM - 4:00 PM</p>
+            <h4 lang="hi">અસ્પતાલ જાણકારી</h4>
+            <p><i class="fas fa-hospital" style="margin-right:8px; color: var(--secondary);"></i> SAL Hospital, Sola, Ahmedabad</p>
+            <p><i class="fas fa-hospital" style="margin-right:8px; color: var(--secondary);"></i> Rhythm Hospital, Kadi</p>
+            <p><i class="fab fa-whatsapp" style="margin-right:8px; color: var(--secondary);"></i> +91 95585 25253</p>
+            <p class="footer-email"><i class="fas fa-envelope" style="margin-right:8px; color: var(--secondary);"></i> dratripatel.neurology@gmail.com</p>
+            <p><i class="fas fa-clock" style="margin-right:8px; color: var(--secondary);"></i> SAL: Mon - Sat, 9:00 AM - 1:00 PM and 4:00 PM - 8:00 PM</p>
+            <p><i class="fas fa-clock" style="margin-right:8px; color: var(--secondary);"></i> Rhythm: Tuesday, 9:00 AM - 12:00 PM</p>
         </div>
 
         <div class="footer-col">
             <h4 lang="en">Connect</h4>
             <h4 lang="gu">સોશિયલ મીડિયા</h4>
-            <h4 lang="hi">सोशल मीडिया</h4>
-            <p lang="en">Follow for brain health tips & neurology updates.</p>
-            <p lang="gu">મગજ અને નસ સંબંધિત ઉપયોગી માહિતી મેળવો.</p>
-            <p lang="hi">न्यूरोलॉजी और मस्तिष्क स्वास्थ्य संबंधी जानकारी।</p>
-
+            <h4 lang="hi">સોશિયલ મીડિયા</h4>
             <div class="footer-social-icons">
                 <a href="https://www.linkedin.com/in/dr-atri-patel-a97914aa/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://www.instagram.com/dratripatel.neuro/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.practo.com/ahmedabad/doctor/dr-atri-patel-neurologist" target="_blank" title="Practo"><i class="fas fa-user-md"></i></a>
+                <span class="social-icon" title="YouTube" role="img" aria-label="YouTube"><i class="fab fa-youtube"></i></span>
             </div>
         </div>
     </div>
@@ -1927,10 +1946,6 @@
         }
     }
 
-    function openMapLink() {
-        window.open('https://maps.google.com/?q=SAL+Hospital+Drive+in+Road+Ahmedabad', '_blank');
-    }
-
     function handleFormSubmit(event) {
         event.preventDefault();
 
@@ -1998,7 +2013,7 @@
             if (currentLang === 'gu') {
                 submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>એપોઈન્ટમેન્ટ રિક્વેસ્ટ મોકલો</span>';
             } else if (currentLang === 'hi') {
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>अपોઈન્ટમેન્ટ રિક્વેસ્ટ મોકલો</span>';
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>અપોઈન્ટમેન્ટ રિક્વેસ્ટ મોકલો</span>';
             } else {
                 submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>Submit Appointment Request</span>';
             }
