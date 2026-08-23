@@ -3,215 +3,2024 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Atri Patel | Consultant Neurologist | Ahmedabad</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Dr. Atri Patel | Consultant Neurophysician | Gold Medalist | Ahmedabad</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root { --primary: #1a4d7c; --secondary: #009688; --accent: #ff9800; --light: #f8fafc; --dark: #0f172a; }
-        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; margin: 0; padding: 0; color: #334155; line-height: 1.6; background: #fff; }
+        :root {
+            --primary: #0f4c81;
+            --primary-light: #1b6ca8;
+            --primary-dark: #093154;
+            --secondary: #00a88f;
+            --secondary-light: #e0f7f4;
+            --accent: #ff8c00;
+            --accent-hover: #e07b00;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray-border: #e2e8f0;
+            --text-dark: #334155;
+            --text-light: #64748b;
+        }
 
-        /* --- Strict Language Hiding Logic --- */
-        [lang="gu"] { display: none !important; }
-        .gujarati-mode [lang="en"] { display: none !important; }
-        .gujarati-mode [lang="gu"] { display: block !important; }
-        .gujarati-mode span[lang="gu"], .gujarati-mode b[lang="gu"], .gujarati-mode i[lang="gu"] { display: inline !important; }
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        /* --- Multilingual (EN / GU / HI) Hiding & Display Engine --- */
+        [lang="gu"], [lang="hi"] { display: none !important; }
+        [lang="en"] { display: initial; }
+
+        body.lang-en [lang="gu"], body.lang-en [lang="hi"] { display: none !important; }
+        body.lang-en [lang="en"] { display: initial; }
+
+        body.lang-gu [lang="en"], body.lang-gu [lang="hi"] { display: none !important; }
+        body.lang-gu [lang="gu"] { display: initial; }
+
+        body.lang-hi [lang="en"], body.lang-hi [lang="gu"] { display: none !important; }
+        body.lang-hi [lang="hi"] { display: initial; }
+
+        /* Block-level elements handling */
+        div[lang], p[lang], h1[lang], h2[lang], h3[lang], h4[lang], h5[lang], h6[lang], ul[lang], section[lang] {
+            display: none !important;
+        }
+
+        body.lang-en div[lang="en"], body.lang-en p[lang="en"], body.lang-en h1[lang="en"], body.lang-en h2[lang="en"], body.lang-en h3[lang="en"], body.lang-en h4[lang="en"], body.lang-en h5[lang="en"], body.lang-en h6[lang="en"], body.lang-en ul[lang="en"], body.lang-en section[lang="en"] {
+            display: block !important;
+        }
+
+        body.lang-gu div[lang="gu"], body.lang-gu p[lang="gu"], body.lang-gu h1[lang="gu"], body.lang-gu h2[lang="gu"], body.lang-gu h3[lang="gu"], body.lang-gu h4[lang="gu"], body.lang-gu h5[lang="gu"], body.lang-gu h6[lang="gu"], body.lang-gu ul[lang="gu"], body.lang-gu section[lang="gu"] {
+            display: block !important;
+        }
+
+        body.lang-hi div[lang="hi"], body.lang-hi p[lang="hi"], body.lang-hi h1[lang="hi"], body.lang-hi h2[lang="hi"], body.lang-hi h3[lang="hi"], body.lang-hi h4[lang="hi"], body.lang-hi h5[lang="hi"], body.lang-hi h6[lang="hi"], body.lang-hi ul[lang="hi"], body.lang-hi section[lang="hi"] {
+            display: block !important;
+        }
+
+        span[lang], b[lang], i[lang], strong[lang], small[lang], a[lang], button[lang] {
+            display: none !important;
+        }
+
+        body.lang-en span[lang="en"], body.lang-en b[lang="en"], body.lang-en i[lang="en"], body.lang-en strong[lang="en"], body.lang-en small[lang="en"], body.lang-en a[lang="en"], body.lang-en button[lang="en"] {
+            display: inline-block !important;
+        }
+        body.lang-gu span[lang="gu"], body.lang-gu b[lang="gu"], body.lang-gu i[lang="gu"], body.lang-gu strong[lang="gu"], body.lang-gu small[lang="gu"], body.lang-gu a[lang="gu"], body.lang-gu button[lang="gu"] {
+            display: inline-block !important;
+        }
+        body.lang-hi span[lang="hi"], body.lang-hi b[lang="hi"], body.lang-hi i[lang="hi"], body.lang-hi strong[lang="hi"], body.lang-hi small[lang="hi"], body.lang-hi a[lang="hi"], body.lang-hi button[lang="hi"] {
+            display: inline-block !important;
+        }
 
         /* Navigation */
-        nav { background: white; padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000; }
-        .logo-box { line-height: 1.2; }
-        .logo-name { font-size: 1.4rem; font-weight: bold; color: var(--primary); }
-        .nav-right { display: flex; align-items: center; gap: 15px; }
+        nav {
+            background: white;
+            padding: 15px 5%;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            row-gap: 12px;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-box {
+            grid-column: 1 / -1;
+            line-height: 1.3;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            background: var(--secondary-light);
+            color: var(--secondary);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-name {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .logo-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        .nav-links {
+            grid-column: 1;
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        .nav-right {
+            grid-column: 2;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-        .lang-btn { background: #f1f5f9; border: 1px solid #cbd5e1; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
-        .call-btn-nav { background: var(--secondary); color: white; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; font-size: 0.9rem; box-shadow: 0 4px 6px rgba(0, 150, 136, 0.2); }
+        /* Multilingual Language Switcher Pill Selector */
+        .lang-switch-container {
+            display: flex;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 20px;
+            padding: 2px;
+            gap: 2px;
+        }
+        .lang-pill {
+            border: none;
+            background: transparent;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-dark);
+            transition: 0.2s;
+        }
+        .lang-pill.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 6px rgba(15, 76, 129, 0.2);
+        }
+
+        .call-btn-nav {
+            background: var(--secondary);
+            color: white !important;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0, 168, 143, 0.2);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .call-btn-nav:hover {
+            background: #008f7a;
+            transform: translateY(-1px);
+        }
+
 
         /* Hero Section */
-        .hero { background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop') center/cover; color: white; padding: 80px 5%; text-align: center; }
-        .hero h1 { font-size: 3rem; margin: 0; letter-spacing: -1px; }
-        .hero p { font-size: 1.2rem; max-width: 800px; margin: 20px auto; opacity: 0.9; }
+        .hero {
+            background: linear-gradient(rgba(9, 49, 84, 0.88), rgba(9, 49, 84, 0.92)), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop') center/cover;
+            color: white;
+            padding: 90px 5% 100px;
+        }
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .hero-img-box {
+            position: relative;
+            text-align: center;
+        }
+        .hero-img {
+            max-width: 320px;
+            width: 100%;
+            border-radius: 50%;
+            border: 6px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            background: #fff;
+        }
+        .hero-badge {
+            background: rgba(0, 168, 143, 0.25);
+            border: 1px solid var(--secondary);
+            color: #e0f7f4;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0 0 10px 0;
+            letter-spacing: -1px;
+            font-weight: 800;
+            color: white;
+        }
+        .hero-subtitle-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            margin: 0 0 30px 0;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        .hero-ctas {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .hero-btn-primary {
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 168, 143, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .hero-btn-primary:hover {
+            background: #008f7a;
+            transform: translateY(-2px);
+        }
+        .hero-btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .hero-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
 
-        .award-banner { background: #fffbeb; color: #92400e; padding: 15px; text-align: center; font-weight: bold; font-size: 0.95rem; border-bottom: 1px solid #fde68a; display: flex; justify-content: center; align-items: center; gap: 10px; }
+        /* Common Section Styling */
+        section {
+            padding: 80px 8%;
+        }
+        .section-dark {
+            background: var(--light);
+        }
+        h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 45px;
+            font-weight: 700;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
 
-        section { padding: 60px 8%; }
-        h2 { color: var(--primary); font-size: 2rem; text-align: center; margin-bottom: 40px; position: relative; }
-        h2::after { content: ''; display: block; width: 60px; height: 4px; background: var(--secondary); margin: 10px auto; border-radius: 2px; }
+        /* Professional Profile */
+        .profile-container {
+            display: grid;
+            grid-template-columns: 1.1fr 1.9fr;
+            gap: 45px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .profile-img-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            padding: 15px;
+            border: 1px solid var(--gray-border);
+        }
+        .profile-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+        .profile-text h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .profile-text p {
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+        }
 
-        /* Clinical Specialties Grid (The 12 items) */
-        .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .spec-card { background: white; padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0; transition: 0.3s; display: flex; align-items: center; gap: 15px; }
-        .spec-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--secondary); }
-        .spec-card i { font-size: 1.5rem; color: var(--secondary); background: #f0fdfa; padding: 12px; border-radius: 50%; }
-        .spec-title { font-weight: bold; color: var(--dark); font-size: 1.05rem; }
+        /* Timeline */
+        .edu-timeline {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            margin-top: 25px;
+            padding-left: 42px;
+        }
+        .edu-timeline::before {
+            content: "";
+            position: absolute;
+            top: 28px;
+            bottom: 28px;
+            left: 10px;
+            width: 3px;
+            border-radius: 3px;
+            background: var(--secondary);
+        }
+        .edu-card {
+            position: relative;
+            background: white;
+            padding: 20px 24px;
+            border-radius: 12px;
+            border-left: 5px solid var(--secondary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: 0.3s;
+            border-top: 1px solid var(--gray-border);
+            border-right: 1px solid var(--gray-border);
+            border-bottom: 1px solid var(--gray-border);
+        }
+        .edu-card::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: -39px;
+            z-index: 1;
+            width: 18px;
+            height: 18px;
+            box-sizing: border-box;
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            background: white;
+            transition: transform 0.3s;
+        }
+        .edu-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+        }
+        .edu-card:hover::before {
+            transform: translateX(-5px);
+        }
+        .edu-card b {
+            font-size: 1.15rem;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 4px;
+        }
+        .edu-card small {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
 
-        /* Education & Bio */
-        .bio-box { background: var(--light); padding: 40px; border-radius: 20px; margin-bottom: 40px; }
-        .edu-timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
-        .edu-card { background: white; padding: 20px; border-radius: 10px; border-left: 4px solid var(--primary); box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        /* Clinical Specialties Grid */
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .spec-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--gray-border);
+            transition: 0.3s;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+        }
+        .spec-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 168, 143, 0.12);
+            border-color: var(--secondary);
+        }
+        .spec-card i {
+            font-size: 1.6rem;
+            color: var(--secondary);
+            background: var(--secondary-light);
+            padding: 14px;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .spec-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .spec-title {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        .spec-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
 
-        /* Blog Section */
-        .blog-card { border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: white; }
-        .blog-content { padding: 20px; }
-        .blog-tag { background: var(--secondary); color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            background: white;
+            border: 1px solid var(--gray-border);
+            transition: 0.3s;
+        }
+        .gallery-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+        .gallery-img-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.2rem;
+        }
+        .gallery-info {
+            padding: 18px 20px;
+        }
+        .gallery-info h4 {
+            margin: 0 0 6px 0;
+            color: var(--primary);
+            font-size: 1.15rem;
+        }
+        .gallery-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
 
-        /* Appointments */
-        .contact-container { background: var(--primary); color: white; padding: 50px; border-radius: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .cta-btn { background: var(--accent); color: white; text-decoration: none; padding: 15px 30px; border-radius: 8px; display: inline-block; font-weight: bold; margin-top: 20px; font-size: 1.1rem; }
+        /* Locations and Contact info */
+        .dual-contact-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1.4fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .locations-box {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+            border: 1px solid var(--gray-border);
+        }
+        .hospital-card {
+            background: var(--light);
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 22px;
+            border-left: 5px solid var(--primary);
+            border-top: 1px solid var(--gray-border);
+            border-right: 1px solid var(--gray-border);
+            border-bottom: 1px solid var(--gray-border);
+        }
+        .hospital-card:last-child {
+            margin-bottom: 0;
+        }
+        .hospital-card h4 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .hospital-card p {
+            margin: 8px 0;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+        .hospital-card i {
+            color: var(--secondary);
+            margin-right: 6px;
+        }
+        .hospital-address-link {
+            color: inherit;
+            text-decoration: none;
+        }
+        .hospital-address-link:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .quick-contact-card {
+            background: var(--primary-dark);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .quick-contact-card h3 {
+            color: white;
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .quick-contact-card h3::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.15);
+        }
+        .contact-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .contact-detail-item i {
+            font-size: 1.2rem;
+            color: var(--accent);
+            background: rgba(255, 140, 0, 0.15);
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 3px;
+        }
+        .contact-detail-text h5 {
+            margin: 0 0 4px 0;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .contact-detail-text p, .contact-detail-text a {
+            margin: 0;
+            font-size: 1.1rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .contact-detail-text a:hover {
+            color: var(--accent);
+        }
+        /* Raise a Question Form */
+        .form-section-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--gray-border);
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .form-group-full {
+            grid-column: span 2;
+        }
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--primary);
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 12px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            outline: none;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(0, 168, 143, 0.15);
+        }
+        .form-submit-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+        }
+        .form-submit-btn:hover {
+            background: #008f7a;
+            transform: translateY(-1px);
+        }
+        .form-message {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 500;
+            text-align: center;
+            display: none;
+        }
+        .form-message.success {
+            background: #ecfdf5;
+            color: #047857;
+            border: 1px solid #a7f3d0;
+            display: block;
+        }
+        .form-message.error {
+            background: #fef2f2;
+            color: #b91c1c;
+            border: 1px solid #fecaca;
+            display: block;
+        }
+
+        /* FAQ Accordion */
+        .faq-container {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: white;
+            border: 1px solid var(--gray-border);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .faq-item:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .faq-header {
+            padding: 22px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+        .faq-header h4 {
+            margin: 0;
+            color: var(--primary);
+            font-size: 1.15rem;
+            font-weight: 600;
+            padding-right: 15px;
+        }
+        .faq-icon {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            transition: transform 0.3s;
+        }
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: var(--light);
+        }
+        .faq-content-inner {
+            padding: 22px 28px;
+            border-top: 1px solid var(--gray-border);
+            color: var(--text-dark);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        .faq-item.active .faq-content {
+            max-height: 500px;
+        }
+
+        /* Stats & Key Metrics Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 60px 8%;
+            text-align: center;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 5px;
+            display: block;
+        }
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .stat-desc {
+            font-size: 0.88rem;
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+
+        /* Academic Achievements */
+        .academic-section {
+            background: #fff;
+            padding: 80px 8%;
+        }
+        .academic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .academic-card {
+            background: var(--light);
+            padding: 35px;
+            border-radius: 15px;
+            border: 1px solid var(--gray-border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .academic-card h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid var(--secondary-light);
+            padding-bottom: 12px;
+        }
+        .academic-card h3 i {
+            color: var(--secondary);
+        }
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .achievement-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 18px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .achievement-list li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--secondary);
+        }
 
         /* Footer & Socials */
-        footer { background: var(--dark); color: white; padding: 60px 8% 100px; text-align: center; }
-        .social-icons { display: flex; justify-content: center; gap: 25px; margin: 30px 0; }
-        .social-icons a { color: white; font-size: 1.8rem; transition: 0.3s; }
-        .social-icons a:hover { color: var(--secondary); transform: scale(1.2); }
-        .practo-badge { background: white; color: #28328c; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; }
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 8% 100px;
+            border-top: 4px solid var(--secondary);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1.1fr 0.8fr;
+            gap: 40px;
+            text-align: left;
+            margin-bottom: 50px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .footer-col h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 35px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .footer-logo-icon {
+            background: rgba(0, 168, 143, 0.2);
+            color: var(--secondary);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .footer-logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+        .footer-col p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin: 10px 0;
+        }
+        .footer-col .footer-email {
+            font-size: 0.82rem;
+            white-space: nowrap;
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        .footer-col ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        .footer-social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .footer-social-icons a,
+        .footer-social-icons .social-icon {
+            color: #94a3b8;
+            font-size: 1.3rem;
+            transition: 0.3s;
+            background: rgba(255,255,255,0.05);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer-social-icons a:hover,
+        .footer-social-icons .social-icon:hover {
+            color: white;
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            color: #64748b;
+            font-size: 0.9rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Floating WhatsApp Chat Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 85px;
+            right: 25px;
+            background-color: #25d366;
+            color: white !important;
+            border-radius: 50%;
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.25);
+            z-index: 1500;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1) rotate(5deg);
+        }
 
         /* Mobile Sticky Footer */
-        .mobile-bar { position: fixed; bottom: 0; width: 100%; background: var(--secondary); color: white; display: flex; justify-content: center; align-items: center; padding: 15px 0; text-decoration: none; font-weight: bold; z-index: 2000; box-shadow: 0 -4px 10px rgba(0,0,0,0.1); }
-        @media (min-width: 768px) { .mobile-bar { display: none; } }
+        .mobile-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--secondary);
+            color: white !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px 0;
+            text-decoration: none;
+            font-weight: 700;
+            z-index: 2000;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
+            font-size: 1.05rem;
+            transition: 0.3s;
+        }
+        .mobile-bar:hover {
+            background: #008f7a;
+        }
+        @media (min-width: 768px) {
+            .mobile-bar { display: none; }
+        }
 
-        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } section { padding: 40px 5%; } }
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            section {
+                padding: 60px 6%;
+            }
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+            .hero-ctas {
+                justify-content: center;
+            }
+            .profile-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .dual-contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+            .academic-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 4%;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero {
+                padding: 60px 5% 80px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group-full {
+                grid-column: span 1;
+            }
+            .form-section-container {
+                padding: 25px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .whatsapp-float {
+                bottom: 90px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 26px;
+            }
+            section {
+                padding: 50px 5%;
+            }
+        }
     </style>
 </head>
-<body>
+<body class="lang-en">
 
+
+<!-- Sticky Navigation -->
 <nav>
-    <div class="logo-box">
-        <span class="logo-name">Dr. Atri Patel</span><br>
-        <small style="color: #64748b;" lang="en">Neurologist</small>
-        <small style="color: #64748b;" lang="gu">ન્યુરોલોજીસ્ટ</small>
-    </div>
+    <a href="#" class="logo-box">
+        <div class="logo-icon">AP</div>
+        <div class="logo-text">
+            <span class="logo-name">Dr. Atri Patel</span>
+            <small class="logo-subtitle" lang="en">Consultant Neurophysician</small>
+            <small class="logo-subtitle" lang="gu">કન્સલ્ટન્ટ ન્યુરોફિઝિશિયન</small>
+            <small class="logo-subtitle" lang="hi">कंसल्टेंट न्यूरोफिजिशियन</small>
+        </div>
+    </a>
+
+    <ul class="nav-links">
+        <li>
+            <a href="#about">
+                <span lang="en">About</span>
+                <span lang="gu">પરિચય</span>
+                <span lang="hi">परिचय</span>
+            </a>
+        </li>
+        <li>
+            <a href="#services">
+                <span lang="en">Services</span>
+                <span lang="gu">સારવાર અને સેવાઓ</span>
+                <span lang="hi">सेवाएं एवं उपचार</span>
+            </a>
+        </li>
+        <li>
+            <a href="#locations">
+                <span lang="en">OPD Schedule</span>
+                <span lang="gu">ઓપીડી સમય</span>
+                <span lang="hi">ओपीडी समय</span>
+            </a>
+        </li>
+        <li>
+            <a href="#gallery">
+                <span lang="en">Facilities</span>
+                <span lang="gu">સુવિધાઓ</span>
+                <span lang="hi">सुविधाएं</span>
+            </a>
+        </li>
+        <li>
+            <a href="#faq">
+                <span lang="en">FAQs</span>
+                <span lang="gu">પ્રશ્નોત્તરી</span>
+                <span lang="hi">प्रश्न-उत्तर</span>
+            </a>
+        </li>
+        <li>
+            <a href="#contact">
+                <span lang="en">Contact</span>
+                <span lang="gu">સંપર્ક</span>
+                <span lang="hi">संपर्क</span>
+            </a>
+        </li>
+    </ul>
+
     <div class="nav-right">
-        <button class="lang-btn" onclick="toggleLang()" id="langBtn">ગુજરાતી</button>
-        <a href="tel:+910000000000" class="call-btn-nav">
-            <span lang="en">Book Now</span>
+        <!-- Language Switcher Selector -->
+        <div class="lang-switch-container">
+            <button class="lang-pill active" onclick="setLanguage('en')" id="btn-lang-en">ENG</button>
+            <button class="lang-pill" onclick="setLanguage('gu')" id="btn-lang-gu">ગુજરાતી</button>
+            <button class="lang-pill" onclick="setLanguage('hi')" id="btn-lang-hi">हिंदी</button>
+        </div>
+
+        <a href="#contact" class="call-btn-nav">
+            <i class="fas fa-calendar-check"></i>
+            <span lang="en">Book Appointment</span>
             <span lang="gu">એપોઈન્ટમેન્ટ</span>
+            <span lang="hi">अपॉइंटमेंट</span>
         </a>
     </div>
 </nav>
 
+<!-- Hero Section -->
 <div class="hero">
-    <h1 lang="en">Dr. Atri Patel</h1>
-    <h1 lang="gu">ડૉ. અત્રિ પટેલ</h1>
-    <p lang="en">Consultant Neurophysician & Neurologist | Gold Medalist<br>Combining Clinical Precision with Compassionate Care</p>
-    <p lang="gu">કન્સલ્ટન્ટ ન્યુરોફિઝિશિયન અને ન્યુરોલોજીસ્ટ | ગોલ્ડ મેડાલિસ્ટ<br>ચોક્કસ નિદાન અને દર્દીની શ્રેષ્ઠ સારવાર માટે પ્રતિબદ્ધ</p>
+    <div class="hero-container">
+        <div class="hero-img-box">
+            <img class="hero-img" src="dr_atri_patel.png" alt="Dr. Atri Patel - Consultant Neurophysician">
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span lang="en">Consultant Neurophysician (Gold Medalist)</span>
+                <span lang="gu">કન્સલ્ટન્ટ ન્યુરોફિઝિશિયન (ગોલ્ડ મેડાલિસ્ટ)</span>
+                <span lang="hi">कंसल्टेंट न्यूरोफिजिशियन (गोल्ड मेडलिस्ट)</span>
+            </div>
+
+            <h1 lang="en">Dr. Atri Patel</h1>
+            <h1 lang="gu">ડૉ. અત્રિ પટેલ</h1>
+            <h1 lang="hi">डॉ. अत्रि पटेल</h1>
+
+            <div class="hero-subtitle-text">
+                <span lang="en">M.B.B.S., M.D. (General Medicine)<br>D.M. Neurology (RML Hospital, New Delhi)</span>
+                <span lang="gu">M.B.B.S., M.D. (જનરલ મેડિસિન)<br>D.M. ન્યુરોલોજી (આર.એમ.એલ. હોસ્પિટલ, નવી દિલ્હી)</span>
+                <span lang="hi">M.B.B.S., M.D. (जनरल मेडिसिन)<br>D.M. न्यूरोलॉजी (आरएमएल अस्पताल, नई दिल्ली)</span>
+            </div>
+
+
+            <p lang="gu">કન્સલ્ટન્ટ ન્યુરોફિઝિશિયન.<br>મગજ, નસ, કરોડરજ્જુ અને સ્નાયુઓના રોગો માટે ચોક્કસ નિદાન અને દર્દીની શ્રેષ્ઠ સાહાનુભૂતિપૂર્વક સારવાર.</p>
+            <p lang="hi">कंसल्टेंट न्यूरोफिजिशियन।<br>मस्तिष्क, तंत्रिका (नसों), रीढ़ की हड्डी और मांसपेशियों के विकारों का आधुनिक एवं सटीक उपचार।</p>
+
+            <div class="hero-ctas">
+                <a href="#contact" class="hero-btn-primary">
+                    <i class="fas fa-calendar-plus"></i>
+                    <span lang="en">Book OPD Appointment</span>
+                    <span lang="gu">એપોઈન્ટમેન્ટ બુક કરો</span>
+                    <span lang="hi">अपॉइंटमेंट बुक करें</span>
+                </a>
+                <a href="tel:+919558525253" class="hero-btn-secondary">
+                    <i class="fab fa-whatsapp"></i>
+                    <span lang="en">Call: +91 95585 25253</span>
+                    <span lang="gu">કોલ કરો: +91 95585 25253</span>
+                    <span lang="hi">કॉल करें: +91 95585 25253</span>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="award-banner">
-    <i class="fas fa-trophy"></i> 
-    <span lang="en">1st Prize: Surath Mohandas Award in Autoimmune Neurology (IANCON 2025)</span>
-    <span lang="gu">પ્રથમ પુરસ્કાર: સુરથ મોહનદાસ એવોર્ડ - ઓટોઈમ્યુન ન્યુરોલોજી (IANCON 2025)</span>
+<!-- Key Impact Metrics (Statistics Grid) -->
+<div class="stats-section">
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span class="stat-number">7+</span>
+            <span class="stat-label" lang="en">Years Experience</span>
+            <span class="stat-label" lang="gu">વર્ષનો અનુભવ</span>
+            <span class="stat-label" lang="hi">वर्षों का अनुभव</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">10000+</span>
+            <span class="stat-label" lang="en">Patients Treated</span>
+            <span class="stat-label" lang="gu">દર્દીઓની સારવાર</span>
+            <span class="stat-label" lang="hi">रोगियों का इलाज</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">200+</span>
+            <span class="stat-label" lang="en">Complex Neurological Patients Managed</span>
+            <span class="stat-label" lang="gu">જટિલ ન્યુરોલોજીકલ દર્દીઓનું સંચાલન</span>
+            <span class="stat-label" lang="hi">जटिल न्यूरोलॉजिकल रोगियों का प्रबंधन</span>
+        </div>
+    </div>
 </div>
 
-<section id="profile">
-    <div class="bio-box">
-        <h2 lang="en">Professional Profile</h2>
-        <h2 lang="gu">તબીબી પરિચય</h2>
-        <p lang="en">As a Consultant Neurophysician, Dr. Atri Patel delivers evidence-based, patient-centric care for a wide spectrum of neurological disorders. His clinical foundation from BJ Medical College and specialized training at ABVIMS & RML Hospital, New Delhi, allows him to manage complex systemic and nervous system diseases with expertise.</p>
-        <p lang="gu">કન્સલ્ટન્ટ ન્યુરોફિઝિશિયન તરીકે, ડૉ. અત્રિ પટેલ મગજ અને નસના રોગો માટે પુરાવા-આધારિત સારવાર પૂરી પાડે છે. બી.જે. મેડિકલ કોલેજ અને આર.એમ.એલ. હોસ્પિટલ, નવી દિલ્હી ખાતેના તેમના અનુભવ દ્વારા તેઓ જટિલ ન્યુરોલોજીકલ સમસ્યાઓનું સચોટ નિદાન કરે છે.</p>
-        
-        <div class="edu-timeline">
-            <div class="edu-card">
-                <b lang="en">DM - Neurology (Gold Medalist)</b><b lang="gu">DM - ન્યુરોલોજી (ગોલ્ડ મેડાલિસ્ટ)</b><br>
-                <small>ABVIMS & Dr. RML Hospital, New Delhi (2025)</small>
-            </div>
-            <div class="edu-card">
-                <b lang="en">MD - Internal Medicine</b><b lang="gu">MD - ઇન્ટરનલ મેડિસિન</b><br>
-                <small>SVP Hospital, Ahmedabad</small>
-            </div>
-            <div class="edu-card">
-                <b lang="en">MBBS</b><b lang="gu">MBBS</b><br>
-                <small>BJ Medical College, Ahmedabad (2016)</small>
+<!-- Professional Profile & Education Section -->
+<section id="about">
+    <div class="profile-container">
+        <div class="profile-img-container">
+            <img class="profile-img" src="dr_atri_patel.png" alt="Dr. Atri Patel - Consultant Neurophysician">
+        </div>
+        <div class="profile-text">
+            <h2 lang="en" style="text-align:left; margin-bottom: 25px;">About Dr. Atri Patel</h2>
+            <h2 lang="gu" style="text-align:left; margin-bottom: 25px;">તબીબી પરિચય</h2>
+            <h2 lang="hi" style="text-align:left; margin-bottom: 25px;">चिकित्सकीय परिचय</h2>
+
+            <p lang="en">Dr. Atri Patel is a Consultant Neurophysician and DM Neurology Gold Medalist in Ahmedabad, providing expert care for disorders of the brain, nerves, spine, and muscles.</p>
+            <p lang="gu">ડૉ. અત્રિ પટેલ અમદાવાદના કન્સલ્ટન્ટ ન્યુરોફિઝિશિયન અને DM ન્યુરોલોજી ગોલ્ડ મેડાલિસ્ટ છે. તેઓ મગજ, નસ, કરોડરજ્જુ અને સ્નાયુઓના રોગોની નિષ્ણાત સારવાર આપે છે.</p>
+            <p lang="hi">डॉ. अत्रि पटेल अहमदाबाद के कंसल्टेंट न्यूरोफिजिशियन और DM न्यूरोलॉजी गोल्ड मेडलिस्ट हैं। वे मस्तिष्क, नसों, रीढ़ की हड्डी और मांसपेशियों के रोगों की विशेषज्ञ देखभाल प्रदान करते हैं।</p>
+
+            <div class="edu-timeline">
+                <div class="edu-card">
+                    <b lang="en">DM - Neurology (Gold Medalist)</b>
+                    <b lang="gu">DM - ન્યુરોલોજી (ગોલ્ડ મેડાલિસ્ટ)</b>
+                    <b lang="hi">DM - न्यूरोलॉजी (गोल्ड मेडलिस्ट)</b>
+                    <small lang="en">ABVIMS & Dr. RML Hospital, New Delhi</small>
+                    <small lang="gu">એ.બી.વી.આઈ.એમ.એસ. અને ડૉ. આર.એમ.એલ. હોસ્પિટલ, નવી દિલ્હી</small>
+                    <small lang="hi">एबीवीआईएमएस एवं डॉ. आरएमएल अस्पताल, नई दिल्ली</small>
+                </div>
+                <div class="edu-card">
+                    <b lang="en">MD - Internal Medicine</b>
+                    <b lang="gu">MD - ઇન્ટરનલ મેડિસિન</b>
+                    <b lang="hi">MD - जनरल मेडिसिन</b>
+                    <small lang="en">SVP Hospital, Ahmedabad</small>
+                    <small lang="gu">એસ.વી.પી. હોસ્પિટલ, અમદાવાદ</small>
+                    <small lang="hi">એસવીપી હોસ્પિટલ, અમદાવાદ</small>
+                </div>
+                <div class="edu-card">
+                    <b lang="en">MBBS</b>
+                    <b lang="gu">MBBS</b>
+                    <b lang="hi">MBBS</b>
+                    <small lang="en">BJ Medical College, Ahmedabad</small>
+                    <small lang="gu">બી. જે. મેડિકલ કોલેજ, અમદાવાદ</small>
+                    <small lang="hi">बी. जे. मेडिकल कॉलेज, अहमदाबाद</small>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="expertise" style="background: white;">
-    <h2 lang="en">Clinical Expertise</h2>
-    <h2 lang="gu">રોગો અને સારવાર</h2>
-    <div class="spec-grid">
-        <!-- The 12 points from your image -->
-        <div class="spec-card"><i class="fas fa-brain"></i> <span class="spec-title" lang="en">Stroke</span><span class="spec-title" lang="gu">લકવા (સ્ટ્રોક)</span></div>
-        <div class="spec-card"><i class="fas fa-bolt"></i> <span class="spec-title" lang="en">Seizure & Epilepsy</span><span class="spec-title" lang="gu">ખેંચ અને વાઈ</span></div>
-        <div class="spec-card"><i class="fas fa-head-side-virus"></i> <span class="spec-title" lang="en">Migraine & Headache</span><span class="spec-title" lang="gu">આધાશીશી અને માથાનો દુખાવો</span></div>
-        <div class="spec-card"><i class="fas fa-user-clock"></i> <span class="spec-title" lang="en">Alzheimer's & Dementia</span><span class="spec-title" lang="gu">અલ્ઝાઈમર અને યાદશક્તિની નબળાઈ</span></div>
-        <div class="spec-card"><i class="fas fa-shield-virus"></i> <span class="spec-title" lang="en">Autoimmune Disorders</span><span class="spec-title" lang="gu">રોગપ્રતિકારક શક્તિના ન્યુરો રોગો</span></div>
-        <div class="spec-card"><i class="fas fa-bacteria"></i> <span class="spec-title" lang="en">Neuroinfectious Diseases</span><span class="spec-title" lang="gu">ચેપી ન્યુરોલોજીકલ રોગો</span></div>
-        <div class="spec-card"><i class="fas fa-walking"></i> <span class="spec-title" lang="en">Parkinson's & Movement</span><span class="spec-title" lang="gu">પાર્કિન્સન્સ અને કંપવા</span></div>
-        <div class="spec-card"><i class="fas fa-project-diagram"></i> <span class="spec-title" lang="en">Peripheral Nerve Disorders</span><span class="spec-title" lang="gu">નસના રોગો (Peripheral Nerve)</span></div>
-        <div class="spec-card"><i class="fas fa-dumbbell"></i> <span class="spec-title" lang="en">Neuromuscular Junction</span><span class="spec-title" lang="gu">સ્નાયુ અને જંકશનના રોગો</span></div>
-        <div class="spec-card"><i class="fas fa-prothesis"></i> <span class="spec-title" lang="en">Spinal Cord Disorders</span><span class="spec-title" lang="gu">કરોડરજ્જુના રોગો</span></div>
-        <div class="spec-card"><i class="fas fa-medkit"></i> <span class="spec-title" lang="en">Neuro-Critical Care</span><span class="spec-title" lang="gu">ગંભીર ન્યુરો કેર (ICU)</span></div>
-        <div class="spec-card"><i class="fas fa-wave-square"></i> <span class="spec-title" lang="en">NCV, EMG & EEG</span><span class="spec-title" lang="gu">ન્યુરોલોજી ટેસ્ટ (NCV, EMG, EEG)</span></div>
+<!-- Academic Honors & Research -->
+<section class="academic-section section-dark">
+    <h2 lang="en">Academic Achievements & Honors</h2>
+    <h2 lang="gu">શૈક્ષણિક સિદ્ધિઓ અને સન્માન</h2>
+    <h2 lang="hi">शैक्षणिक उपलब्धियां एवं सम्मान</h2>
+
+    <div class="academic-grid">
+        <!-- Card 1: Excellence & Recognition -->
+        <div class="academic-card">
+            <h3>
+                <i class="fas fa-award"></i>
+                <span lang="en">Awards & Recognition</span>
+                <span lang="gu">એવોર્ડ અને સન્માન</span>
+                <span lang="hi">पुरस्कार एवं सम्मान</span>
+            </h3>
+            <ul class="achievement-list">
+                <li>
+                    <strong lang="en">1st Prize: Surath Mohandas Award in Autoimmune Neurology</strong>
+                    <strong lang="gu">પ્રથમ પુરસ્કાર: સુરથ મોહનદાસ એવોર્ડ - ઓટોઈમ્યુન ન્યુરોલોજી</strong>
+                    <strong lang="hi">प्रथम पुरस्कार: सुरथ मोहनदास अवॉर्ड - ऑटोइम्यून न्यूरोलॉजी</strong>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="en">Awarded 1st Prize at IANCON 2025 for outstanding research and clinical breakthrough in autoimmune neurology.</p>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="gu">IANCON 2025 રાષ્ટ્રીય કોન્ફરન્સમાં ઓટોઈમ્યુન ન્યુરોલોજીમાં શ્રેષ્ઠ સંશોધન માટે પ્રથમ પુરસ્કાર.</p>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="hi">IANCON 2025 राष्ट्रीय सम्मेलन में ऑटोइम्यून न्यूरोलॉजी में उत्कृष्ट शोध के लिए प्रथम पुरस्कार।</p>
+                </li>
+                <li>
+                    <strong lang="en">DM Neurology Gold Medal Honors</strong>
+                    <strong lang="gu">DM ન્યુરોલોજી ગોલ્ડ મેડલ સન્માન</strong>
+                    <strong lang="hi">DM न्यूरोलॉजी गोल्ड मेडल सम्मान</strong>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="en">Secured top academic distinction in DM Neurology examination at ABVIMS & Dr. RML Hospital, New Delhi (CGGSIPU university).</p>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="gu">નવી દિલ્હીમાં ન્યુરોલોજી સુપર-સ્પેશિયાલિટીમાં સર્વોચ્ચ ગુણ સાથે ગોલ્ડ મેડલ મેળવ્યો.</p>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="hi">नई दिल्ली में न्यूरोलॉजी परीक्षा में सर्वोच्च अंक प्राप्त कर गोल्ड मेडल से सम्मानित।</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Card 2: Publications & Presentations -->
+        <div class="academic-card">
+            <h3>
+                <i class="fas fa-file-alt"></i>
+                <span lang="en">Publications & Presentations</span>
+                <span lang="gu">પ્રકાશનો અને સંશોધન પત્રો</span>
+                <span lang="hi">પ્રકાશન एवं शोध पत्र</span>
+            </h3>
+            <ul class="achievement-list">
+                <li>
+                    <strong lang="en">12 Poster Presentations</strong>
+                    <strong lang="gu">૧૨ પોસ્ટર પ્રેઝન્ટેશન</strong>
+                    <strong lang="hi">12 पोस्टर प्रेजेंटेशन</strong>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="en">Total 12 poster presentations at various state-level and national-level neurology conferences.</p>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="gu">વિવિધ રાજ્ય અને રાષ્ટ્રીય કક્ષાની કોન્ફરન્સમાં ૧૨ પોસ્ટર રજૂઆત.</p>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="hi">विभिन्न राज्य व राष्ट्रीय स्तर के सम्मेलनों में 12 पोस्टर प्रस्तुतियां।</p>
+                </li>
+                <li>
+                    <strong lang="en">Platform Presentation - IANCON 2025</strong>
+                    <strong lang="gu">પ્લેટફોર્મ પ્રેઝન્ટેશન - IANCON 2025</strong>
+                    <strong lang="hi">प्लेटफॉर्म प्रेजेंटेशन - IANCON 2025</strong>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="en">Research topic: "Cognitive assessment in patients of NMOSD" presented at IANCON 2025.</p>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="gu">IANCON 2025 માં NMOSD દર્દીઓમાં બોધનાત્મક મૂલ્યાંકન વિષય પર પેપર રજૂઆત.</p>
+                    <p style="margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light);" lang="hi">IANCON 2025 में NMOSD के रोगियों में संज्ञानात्मक मूल्यांकन विषय पर प्रस्तुति।</p>
+                </li>
+                <li><strong>AAN video Gallery publication</strong></li>
+            </ul>
+        </div>
     </div>
 </section>
 
-<!-- Blog Section for Daily Engagement -->
-<section id="blog" style="background: var(--light);">
-    <h2 lang="en">Neurology Blog & Tips</h2>
-    <h2 lang="gu">ન્યુરોલોજી ટિપ્સ અને બ્લોગ</h2>
+<!-- Clinical Services & Conditions Treated -->
+<section id="services">
+    <h2 lang="en">Services & Neurological Specialties</h2>
+    <h2 lang="gu">સારવાર અને સેવાઓ</h2>
+    <h2 lang="hi">सेवाएं एवं उपचार</h2>
+
     <div class="spec-grid">
-        <div class="blog-card">
-            <div class="blog-content">
-                <span class="blog-tag" lang="en">Daily Tip</span><span class="blog-tag" lang="gu">દૈનિક ટિપ</span>
-                <h4 lang="en">Understanding Stroke: BE FAST</h4>
-                <h4 lang="gu">લકવાને ઓળખો: BE FAST લક્ષણો</h4>
-                <p lang="en">Learn the early signs of stroke to save lives...</p>
-                <p lang="gu">લકવાના ચિહ્નો અને તાત્કાલિક સારવાર વિશે જાણો...</p>
+        <!-- 1. Stroke -->
+        <div class="spec-card">
+            <i class="fas fa-brain"></i>
+            <div class="spec-text">
+                <span class="spec-title" lang="en">Stroke Management</span>
+                <span class="spec-title" lang="gu">લકવા (સ્ટ્રોક) નિદાન અને સારવાર</span>
+                <span class="spec-title" lang="hi">स्ट्रोक (लकवा) प्रबंधन</span>
+                <span class="spec-desc" lang="en">Comprehensive evaluation and acute emergency management for Brain Paralysis (Ischemic & Hemorrhagic Stroke).</span>
+                <span class="spec-desc" lang="gu">મગજનો લકવા, અચાનક મોં વાંકુ થઈ જવું, હાથ-પગમાં નબળાઈ અને તાત્કાલિક જીવનરક્ષક સારવાર.</span>
+                <span class="spec-desc" lang="hi">मस्तिष्कघात, मुंह टेढ़ा होना, हाथ-पैर की कमजोरी एवं त्वरित आपातकालीन उपचार।</span>
             </div>
         </div>
-        <!-- More blog items can be added here -->
+
+        <!-- 2. Seizure & Epilepsy -->
+        <div class="spec-card">
+            <i class="fas fa-bolt"></i>
+            <div class="spec-text">
+                <span class="spec-title" lang="en">Seizure & Epilepsy Care</span>
+                <span class="spec-title" lang="gu">ખેંચ અને વાઈ (તાણ)</span>
+                <span class="spec-title" lang="hi">मिर्गी एवं दौरे (Seizures)</span>
+                <span class="spec-desc" lang="en">Advanced diagnostic workup (EEG, MRI) and long-term control of fits, seizures, and epilepsy.</span>
+                <span class="spec-desc" lang="gu">મોંમાંથી ફીણ આવવું, અચાનક બેભાન થવું અને વાઈના દૌરાઓનું સચોટ નિયંત્રણ.</span>
+                <span class="spec-desc" lang="hi">दौरे आना, बेहोशी होना और मिर्गी का आधुनिक दवाइयों से सफल नियंत्रण।</span>
+            </div>
+        </div>
+
+        <!-- 3. Migraine & Headache -->
+        <div class="spec-card">
+            <i class="fas fa-head-side-virus"></i>
+            <div class="spec-text">
+                <span class="spec-title" lang="en">Migraine & Headache</span>
+                <span class="spec-title" lang="gu">આધાશીશી અને માથાનો દુખાવો</span>
+                <span class="spec-title" lang="hi">माइग्रेन एवं सिरदर्द</span>
+                <span class="spec-desc" lang="en">Targeted therapies for chronic migraine, tension headaches, cluster headaches, and facial pain.</span>
+                <span class="spec-desc" lang="gu">અડધા માથાનો દુખાવો, સતત ભારેલો અનુભવ, ઉલટી થવી અને આધાશીશીની કાયમી રાહત.</span>
+                <span class="spec-desc" lang="hi">आधे सिर का दर्द, माइग्रेन, तनावपूर्ण सिरदर्द का स्थायी एवं प्रभावी समाधान।</span>
+            </div>
+        </div>
+
+        <!-- 4. Alzheimer's & Dementia -->
+        <div class="spec-card">
+            <i class="fas fa-user-clock"></i>
+            <div class="spec-text">
+                <span class="spec-title" lang="en">Alzheimer's & Memory Related Disorders</span>
+                <span class="spec-title" lang="gu">અલ્ઝાઈમર અને યાદશક્તિની નબળાઈ</span>
+                <span class="spec-title" lang="hi">अल्जाइमर एवं भूलने की बीमारी</span>
+                <span class="spec-desc" lang="en">Specialized care for age-related memory loss, dementia, confusion, and cognitive impairment.</span>
+                <span class="spec-desc" lang="gu">યાદશક્તિ જવી, વર્તનમાં ફેરફાર, અલ્ઝાઈમર ડિસીઝ અને મગજ સંબંધિત કાળજી.</span>
+                <span class="spec-desc" lang="hi">याददाश्त कमजोर होना, डिमेंशिया और व्यवहार में बदलाव की विशेष देखभाल।</span>
+            </div>
+        </div>
+
+        <!-- 5. Autoimmune Disorders -->
+        <div class="spec-card">
+            <i class="fas fa-shield-virus"></i>
+            <div class="spec-text">
+                <span class="spec-title" lang="en">Autoimmune Neurology</span>
+                <span class="spec-title" lang="gu">રોગપ્રતિકારક શક્તિના ન્યુરો રોગો</span>
+                <span class="spec-title" lang="hi">ऑटोइम्यून न्यूरोलॉजिकल विकार</span>
+                <span class="spec-desc" lang="en">Award-winning expertise in Multiple Sclerosis, Autoimmune Encephalitis, and NMO spectrum.</span>
+                <span class="spec-desc" lang="gu">શરીરની પોતાની પ્રતિકારક શક્તિ મગજ/નસ પર હુમલો કરે ત્યારે અદ્યતન ઈમ્યુનોથેરાપી.</span>
+                <span class="spec-desc" lang="hi">मल्टीपल स्क्लेरोसिस और ऑटोइम्यून मस्तिष्क विकारों का पुरस्कार-प्राप्त इलाज।</span>
+            </div>
+        </div>
+
+        <!-- 6. Neuroinfectious Diseases -->
+        <div class="spec-card">
+            <i class="fas fa-bacteria"></i>
+            <div class="spec-text">
+                <span class="spec-title" lang="en">Neuroinfectious Diseases</span>
+                <span class="spec-title" lang="gu">ચેપી ન્યુરોલોજીકલ રોગો (Meningitis)</span>
+                <span class="spec-title" lang="hi">मस्तिष्क संक्रमण एवं मेनिनजाइटिस</span>
+                <span class="spec-desc" lang="en">Prompt diagnosis for Meningitis, Encephalitis, Brain Tuberculosis, and neuro-infections.</span>
+                <span class="spec-desc" lang="gu">મગજનો તાવ (મેનિન્જાઇટિસ), તબીબી ચેપ અને મગજ ટીબીની તાત્કાલિક કાળજી.</span>
+                <span class="spec-desc" lang="hi">दिमागी बुखार, मेनिनजाइटिस और न्यूरो इन्फेक्शन का त्वरित उपचार।</span>
+            </div>
+        </div>
+
+        <!-- 7. Parkinson's & Movement Disorders -->
+        <div class="spec-card">
+            <i class="fas fa-walking"></i>
+            <div class="spec-text">
+                <span class="spec-title" lang="en">Parkinson's & Movement Disorders</span>
+                <span class="spec-title" lang="gu">પાર્કિન્સન્સ અને કંપવા</span>
+                <span class="spec-title" lang="hi">पार्किंसंस एवं कपकपी (Parkinson's)</span>
+                <span class="spec-desc" lang="en">Management of hand tremors, body stiffness, slowness of movement, and gait disturbance.</span>
+                <span class="spec-desc" lang="gu">હાથ ધ્રૂજવા, ચાલવામાં અસંતુલન, શરીર જકડાઈ જવું અને પાર્કિન્સન્સ કાળજી.</span>
+                <span class="spec-desc" lang="hi">हाथ कांपना, चाल में लड़खड़ाना और शरीर की अकड़न का कारगर इलाज।</span>
+            </div>
+        </div>
+
+        <!-- 8. Peripheral Nerve Disorders -->
+        <div class="spec-card">
+            <i class="fas fa-project-diagram"></i>
+            <div class="spec-text">
+                <span class="spec-title" lang="en">Peripheral Nerve Disorders</span>
+                <span class="spec-title" lang="gu">નસના રોગો (Neuropathy)</span>
+                <span class="spec-title" lang="hi">नसों की बीमारी (न्यूरोपैथी)</span>
+                <span class="spec-desc" lang="en">Treatment for diabetic neuropathy, tingling sensation, numbness, and nerve pain.</span>
+                <span class="spec-desc" lang="gu">હાથ-પગમાં ખાલી ચડવી, ઝણઝણાટી, બળતરા અને ડાયાબિટીક ન્યુરોપેથી.</span>
+                <span class="spec-desc" lang="hi">हाथ-पैरों में झनझनाहट, सुन्नपन, जलन और न्यूरोपैथिक दर्द का उपचार।</span>
+            </div>
+        </div>
+
+        <!-- 9. Neuromuscular Junction -->
+        <div class="spec-card">
+            <i class="fas fa-dumbbell"></i>
+            <div class="spec-text">
+                <span class="spec-title" lang="en">Neuromuscular Disorders</span>
+                <span class="spec-title" lang="gu">સ્નાયુ અને જંકશનના રોગો (Myasthenia)</span>
+                <span class="spec-title" lang="hi">मांसपेशियों के विकार (Myasthenia)</span>
+                <span class="spec-desc" lang="en">Care for Myasthenia Gravis, muscle dystrophy, weakness, and fatigue syndromes.</span>
+                <span class="spec-desc" lang="gu">આંખના પોપચાં ઢળી જવા, સ્નાયુઓની અસાધારણ થાક અને મિયાસ્થેનિયા ગ્રેવિસ.</span>
+                <span class="spec-desc" lang="hi">मायस्थेनिया ग्रेविस, मांसपेशियों की कमजोरी और असामान्य थकान का इलाज।</span>
+            </div>
+        </div>
+
+        <!-- 10. Spinal Cord Disorders -->
+        <div class="spec-card">
+            <i class="fas fa-notes-medical"></i>
+            <div class="spec-text">
+                <span class="spec-title" lang="en">Spinal Cord Disorders</span>
+                <span class="spec-title" lang="gu">કરોડરજ્જુના રોગો (Myelopathy)</span>
+                <span class="spec-title" lang="hi">रीढ़ की हड्डी के विकार</span>
+                <span class="spec-desc" lang="en">Treatment for cervical & lumbar Spondylosis, spinal cord compression, and paralysis.</span>
+                <span class="spec-desc" lang="gu">ગળા અને કમરની ગાદી ખસવી, નસ દબાવી અને કરોડરજ્જુ સંબંધિત સમસ્યા.</span>
+                <span class="spec-desc" lang="hi">गर्दन व कमर दर्द, नस दबना और रीढ़ की हड्डी के विकारों का उपचार।</span>
+            </div>
+        </div>
+
+        <!-- 11. Neuro-Critical Care -->
+        <div class="spec-card">
+            <i class="fas fa-first-aid"></i>
+            <div class="spec-text">
+                <span class="spec-title" lang="en">Neuro-Critical Care</span>
+                <span class="spec-title" lang="gu">ગંભીર ન્યુરો કેર (Neuro ICU)</span>
+                <span class="spec-title" lang="hi">न्यूरो-क्रिटिकल केयर</span>
+                <span class="spec-desc" lang="en">Dedicated ICU management for status epilepticus, coma, and severe brain trauma.</span>
+                <span class="spec-desc" lang="gu">કોમા, સઘન વાઈના દૌરા અને મગજની અતિ ગંભીર પરિસ્થિતિમાં ICU સંભાળ.</span>
+                <span class="spec-desc" lang="hi">कोमा, गंभीर दौरे और मस्तिष्कीय स्थिति में आईसीयू निगरानी।</span>
+            </div>
+        </div>
+
+        <!-- 12. NCV, EMG & EEG -->
+        <div class="spec-card">
+            <i class="fas fa-wave-square"></i>
+            <div class="spec-text">
+                <span class="spec-title" lang="en">NCV, EMG & EEG Diagnostic Tests</span>
+                <span class="spec-title" lang="gu">ન્યુરોલોજી ટેસ્ટ (NCV, EMG, EEG)</span>
+                <span class="spec-title" lang="hi">न्यूरोलॉजी टेस्ट (NCV, EMG, EEG)</span>
+                <span class="spec-desc" lang="en">Electroencephalogram (EEG), Nerve Conduction Velocity (NCV), and Electromyography (EMG).</span>
+                <span class="spec-desc" lang="gu">મગજની ઈલેક્ટ્રિક તપાસ (EEG) અને નસ-સ્નાયુ ટેસ્ટ (NCV / EMG).</span>
+                <span class="spec-desc" lang="hi">मस्तिष्क की तरंगों की जांच (EEG) और नसों की टेस्टिंग (NCV/EMG)।</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OPD Locations & Consultation Schedule -->
+<section id="locations" class="section-dark">
+    <h2 lang="en">OPD Schedule & Hospitals</h2>
+    <h2 lang="gu">ઓપીડી સમય અને હોસ્પિટલ સરનામું</h2>
+    <h2 lang="hi">ओपीडी समय एवं अस्पताल परामर्श</h2>
+
+    <div class="dual-contact-grid">
+        <div class="locations-box">
+            <!-- Location 1: SAL Hospital -->
+            <div class="hospital-card">
+                <h4><i class="fas fa-hospital"></i> SAL Hospital, Ahmedabad</h4>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a class="hospital-address-link" href="https://maps.app.goo.gl/HtcPnLVzHQKQWoP88" target="_blank" rel="noopener noreferrer">
+                        <span lang="en">Opp. Science City Road, Sola, Ahmedabad, Gujarat 380060, India</span>
+                        <span lang="gu">સાયન્સ સિટી રોડ સામે, સોલા, અમદાવાદ, ગુજરાત ૩૮૦૦૬૦, ભારત</span>
+                        <span lang="hi">साइंस सिटी रोड के सामने, सोला, अहमदाबाद, गुजरात 380060, भारत</span>
+                    </a>
+                </p>
+                <p>
+                    <i class="fas fa-calendar-alt"></i>
+                    <span lang="en"><b>OPD Days:</b> Monday to Saturday</span>
+                    <span lang="gu"><b>દિવસો:</b> સોમવારથી શનિવાર</span>
+                    <span lang="hi"><b>दिन:</b> सोमवार से शनिवार</span>
+                </p>
+                <p>
+                    <i class="fas fa-clock"></i>
+                    <span lang="en"><b>Timing:</b> 9:00 AM – 1:00 PM and 4:00 PM – 8:00 PM</span>
+                    <span lang="gu"><b>સમય:</b> સવારે ૯:૦૦ થી બપોરે ૧:૦૦ અને સાંજે ૪:૦૦ થી રાત્રે ૮:૦૦</span>
+                    <span lang="hi"><b>समय:</b> सुबह 9:00 से दोपहर 1:00 और शाम 4:00 से रात 8:00</span>
+                </p>
+            </div>
+
+            <!-- Location 2: Rhythm Hospital -->
+            <div class="hospital-card">
+                <h4><i class="fas fa-hospital"></i> Rhythm Hospital</h4>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a class="hospital-address-link" href="https://share.google/aYPiTrBXLcghqIzf0" target="_blank" rel="noopener noreferrer">
+                        <span lang="en">Hanumanth Plaza, Kadi, Gujarat 384440</span>
+                        <span lang="gu">હનુમંથ પ્લાઝા, કડી, ગુજરાત ૩૮૪૪૪૦</span>
+                        <span lang="hi">हनुमंथ प्लाज़ा, कड़ी, गुजरात 384440</span>
+                    </a>
+                </p>
+                <p>
+                    <i class="fas fa-calendar-alt"></i>
+                    <span lang="en"><b>OPD Day:</b> Tuesday</span>
+                    <span lang="gu"><b>દિવસ:</b> મંગળવાર</span>
+                    <span lang="hi"><b>दिन:</b> मंगलवार</span>
+                </p>
+                <p>
+                    <i class="fas fa-clock"></i>
+                    <span lang="en"><b>Timing:</b> 9:00 AM – 12:00 PM</span>
+                    <span lang="gu"><b>સમય:</b> સવારે ૯:૦૦ થી બપોરે ૧૨:૦૦</span>
+                    <span lang="hi"><b>समय:</b> सुबह 9:00 से दोपहर 12:00</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="quick-contact-card">
+            <div>
+                <h3 lang="en">Contact Details</h3>
+                <h3 lang="gu">સંપર્ક વિગત</h3>
+                <h3 lang="hi">संपर्क विवरण</h3>
+
+                <div class="contact-detail-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="contact-detail-text">
+                        <h5 lang="en">Direct Appointment Helpline</h5>
+                        <h5 lang="gu">એપોઈન્ટમેન્ટ હેલ્પલાઇન</h5>
+                        <h5 lang="hi">अपॉइंटमेंट हेल्पलाइन</h5>
+                        <a href="tel:+919558525253">+91 95585 25253</a>
+                    </div>
+                </div>
+
+                <div class="contact-detail-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-detail-text">
+                        <h5 lang="en">Email Address</h5>
+                        <h5 lang="gu">ઈમેલ એડ્રેસ</h5>
+                        <h5 lang="hi">ईमेल आईडी</h5>
+                        <a href="mailto:dratripatel.neurology@gmail.com">dratripatel.neurology@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-detail-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="contact-detail-text">
+                        <h5 lang="en">OPD Hours</h5>
+                        <h5 lang="gu">ઓપીડી સમય</h5>
+                        <h5 lang="hi">ओपीडी का समय</h5>
+                        <p lang="en">Mon - Sat: 9:00 AM - 1:00 PM and 4:00 PM - 8:00 PM</p>
+                        <p lang="gu">સોમ - શનિ: સવારે ૯:૦૦ થી બપોરે ૧:૦૦ અને સાંજે ૪:૦૦ થી રાત્રે ૮:૦૦</p>
+                        <p lang="hi">सोम - शनि: सुबह 9:00 से दोपहर 1:00 और शाम 4:00 से रात 8:00</p>
+                        <strong style="color: var(--accent); display: block; font-size: 0.95rem; margin-top: 5px;" lang="en">24* 7 Stroke & Emergency Services</strong>
+                        <strong style="color: var(--accent); display: block; font-size: 0.95rem; margin-top: 5px;" lang="gu">૨૪x૭ સ્ટ્રોક અને ન્યુરો ઇમરજન્સી હેલ્પલાઇન</strong>
+                        <strong style="color: var(--accent); display: block; font-size: 0.95rem; margin-top: 5px;" lang="hi">24x7 स्ट्रोक एवं न्यूरो इमरजेंसी हेल्पलाइन</strong>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Facilities & Clinical Gallery -->
+<section id="gallery">
+    <h2 lang="en">Clinical Infrastructure & Diagnostics</h2>
+    <h2 lang="gu">અદ્યતન તબીબી સુવિધાઓ</h2>
+    <h2 lang="hi">आधुनिक चिकित्सकीय सुविधाएं</h2>
+
+    <div class="gallery-grid">
+        <div class="gallery-card">
+            <img src="conf_2.jpeg" alt="Dr. Atri Patel receiving Surath Mohandas Award at IANCON 2025" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="gallery-info">
+                <h4 lang="en">Surath Mohandas Award (1st Prize)</h4>
+                <h4 lang="gu">સુરથ મોહનદાસ એવોર્ડ (પ્રથમ પુરસ્કાર)</h4>
+                <h4 lang="hi">सुरथ मोहनदास अवॉर्ड (प्रथम पुरस्कार)</h4>
+                <p lang="en">Awarded 1st prize at 32nd Annual Conference of Indian Academy of Neurology (IANCON 2025).</p>
+                <p lang="gu">IANCON 2025 રાષ્ટ્રીય કોન્ફરન્સમાં ઓટોઈમ્યુન ન્યુરોલોજી માટે પ્રથમ પુરસ્કાર.</p>
+                <p lang="hi">IANCON 2025 में ऑटोइम्यून न्यूरोलॉजी के क्षेत्र में प्रथम पुरस्कार।</p>
+            </div>
+        </div>
+
+        <div class="gallery-card">
+            <img src="conf_1.jpeg" alt="Dr. Atri Patel presenting paper at IANCON 2025" style="width: 100%; height: 220px; object-fit: cover; object-position: center 25%;">
+            <div class="gallery-info">
+                <h4 lang="en">Platform Presentation at IANCON 2025</h4>
+                <h4 lang="gu">IANCON 2025 સ્ટેજ પ્રેઝન્ટેશન</h4>
+                <h4 lang="hi">IANCON 2025 मंच प्रस्तुति</h4>
+                <p lang="en">Delivering platform oral presentation on NMOSD research at national conference.</p>
+                <p lang="gu">રાષ્ટ્રીય કોન્ફરન્સમાં સંશોધન પત્રની મૌખિક રજૂઆત.</p>
+                <p lang="hi">राष्ट्रीय सम्मेलन में शोध पत्र की प्रस्तुति।</p>
+            </div>
+        </div>
+
+        <div class="gallery-card">
+            <img src="conf_4.jpeg" alt="Dr. Atri Patel poster presentation" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="gallery-info">
+                <h4 lang="en">Research & Poster Presentation</h4>
+                <h4 lang="gu">સંશોધન અને પોસ્ટર પ્રદર્શન</h4>
+                <h4 lang="hi">शोध एवं पोस्टर प्रदर्शनी</h4>
+                <p lang="en">Poster presentation on GFAP Astrocytopathy at ABVIMS & Dr. RML Hospital, New Delhi.</p>
+                <p lang="gu">આર.એમ.એલ. હોસ્પિટલ નવી દિલ્હીમાં સંશોધન પોસ્ટર રજૂઆત.</p>
+                <p lang="hi">आरएमएल अस्पताल नई दिल्ली में पोस्टर प्रस्तुति।</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Frequently Asked Questions (Accordion) -->
+<section id="faq" class="section-dark">
+    <div class="faq-container">
+        <h2 lang="en">Frequently Asked Questions</h2>
+        <h2 lang="gu">વારંવાર પૂછાતા પ્રશ્નો</h2>
+        <h2 lang="hi">अक्सर पूछे जाने वाले प्रश्न</h2>
+
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+            <div class="faq-header" onclick="toggleFaq(this)">
+                <h4 lang="en">1. What conditions is Dr. Atri Patel treating?</h4>
+                <h4 lang="gu">૧. ડૉ. અત્રિ પટેલ કયા રોગોની સારવાર કરે છે?</h4>
+                <h4 lang="hi">1. डॉ. अत्रि पटेल किन बीमारियों का इलाज करते हैं?</h4>
+                <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-content">
+                <div class="faq-content-inner">
+                    <p lang="en">Dr. Atri Patel provides comprehensive medical treatment for Stroke (Brain Paralysis), Epilepsy & Seizures (Fits), Migraine & Chronic Headaches, Parkinson's & Tremors, Memory loss & Alzheimer's Dementia, Peripheral Neuropathy (Nerve pain & numbness), Autoimmune Brain Disorders, and Spinal Cord issues.</p>
+                    <p lang="gu">ડૉ. અત્રિ પટેલ લકવા (સ્ટ્રોક), વાઈ અને ખેંચ, આધાશીશી (માથાનો દુખાવો), પાર્કિન્સન્સ અને કંપવા, યાદશક્તિની નબળાઈ (અલ્ઝાઈમર), નસ સંબંધિત તકલીફો (ખાલી ચડવી/બળતરા) અને કરોડરજ્જુની સમસ્યાઓની સારવાર કરે છે.</p>
+                    <p lang="hi">डॉ. अत्रि पटेल लकवा (स्ट्रोक), मिर्गी एवं दौरे, माइग्रेन व सिरदर्द, पार्किंसंस, याददाश्त की कमजोरी (अल्जाइमर), नसों की न्यूरोपैथी और रीढ़ की हड्डी के विकारों का उपचार करते हैं।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+            <div class="faq-header" onclick="toggleFaq(this)">
+                <h4 lang="en">2. What are the common conditions for which you should consult a Neurophysician?</h4>
+                <h4 lang="gu">૨. કયા લક્ષણો કે પરિસ્થિતિઓમાં ન્યુરોફિઝિશિયનની સલાહ લેવી જોઈએ?</h4>
+                <h4 lang="hi">2. किन मुख्य लक्षणों में न्यूरोफिजिशियन से परामर्श लेना चाहिए?</h4>
+                <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-content">
+                <div class="faq-content-inner">
+                    <p lang="en">You should consult a Neurophysician if you experience severe or recurring headaches, sudden weakness or paralysis in arms/legs, facial drooping, seizures or blackouts, trembling hands, imbalance while walking, or persistent numbness/tingling in feet and hands.</p>
+                    <p lang="gu">જો તમને સતત માથાનો દુખાવો, અચાનક હાથ-પગમાં નબળાઈ કે લકવાની અસર, મોં વાંકુ થવું, વાઈના દૌરા, હાથ ધ્રૂજવા, ચાલવામાં અસંતુલન કે પગમાં સતત બળતરા/ઝણઝણાટી અનુભવાય તો તુરંત સલાહ લેવી જોઈએ.</p>
+                    <p lang="hi">यदि आपको लगातार सिरदर्द, अचानक हाथ-पैर में कमजोरी/लकवा, मुंह टेढ़ा होना, मिर्गी के दौरे, हाथ कांपना, चलने में असंतुलन या पैरों में जलन/सुन्नपन हो तो तुरंत संपर्क करें।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+            <div class="faq-header" onclick="toggleFaq(this)">
+                <h4 lang="en">3. How to book an appointment?</h4>
+                <h4 lang="gu">૩. એપોઈન્ટમેન્ટ કેવી રીતે બુક કરવી?</h4>
+                <h4 lang="hi">3. अपॉइंटमेंट कैसे बुक करें?</h4>
+                <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-content">
+                <div class="faq-content-inner">
+                    <p lang="en">You can easily book an OPD appointment by calling our direct helpline at <strong>+91-9558525253</strong> or by filling out the appointment request form provided on this page.</p>
+                    <p lang="gu">તમે અમારી ડાયરેક્ટ હેલ્પલાઇન <strong>+91-9558525253</strong> પર કોલ કરીને અથવા આ પેજ પર આપેલું ઓનલાઇન ફોર્મ ભરીને એપોઈન્ટમેન્ટ મેળવી શકો છો.</p>
+                    <p lang="hi">आप हमारी हेल्पलाइन <strong>+91-9558525253</strong> पर कॉल करके या इस पेज पर दिए गए फॉर्म द्वारा अपॉइंटमेंट बुक कर सकते हैं।</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <section id="contact">
-    <div class="contact-container">
-        <div>
-            <h2 lang="en" style="color:white; text-align:left; margin-bottom:20px;">Book Appointment</h2>
-            <h2 lang="gu" style="color:white; text-align:left; margin-bottom:20px;">એપોઈન્ટમેન્ટ લો</h2>
-            <p><i class="fas fa-hospital"></i> <b>SAL Hospital:</b> Science City Road, Ahmedabad</p>
-            <p><i class="fas fa-hospital-alt"></i> <b>Health1 Hospital:</b> Ahmedabad</p>
-            <p><i class="fas fa-id-card"></i> GMC Reg: PG/G-40012</p>
-            <a href="tel:+910000000000" class="cta-btn">
-                <i class="fas fa-phone-alt"></i> <span lang="en">Call Now: +91 [Your Number]</span><span lang="gu">ફોન કરો: +91 [તમારો નંબર]</span>
-            </a>
-        </div>
-        <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px;">
-            <h4 lang="en">Languages Spoken:</h4>
-            <h4 lang="gu">ભાષાઓ:</h4>
-            <p>English, Gujarati, Hindi</p>
-            <hr style="opacity: 0.2;">
-            <p lang="en">7+ Years of Clinical Experience in Neurology.</p>
-            <p lang="gu">ન્યુરોલોજી ક્ષેત્રે 7+ વર્ષનો તબીબી અનુભવ.</p>
-        </div>
+    <div class="form-section-container">
+        <h2 lang="en">Book an OPD Appointment / Send Query</h2>
+        <h2 lang="gu">એપોઈન્ટમેન્ટ બુક કરો / પ્રશ્ન પૂછો</h2>
+        <h2 lang="hi">अपॉइंटमेंट बुक करें / प्रश्न पूछें</h2>
+
+        <p style="text-align: center; color: var(--text-light); margin-bottom: 35px;" lang="en">Fill out the details below to schedule your consultation with Dr. Atri Patel.</p>
+        <p style="text-align: center; color: var(--text-light); margin-bottom: 35px;" lang="gu">ડૉ. અત્રિ પટેલ સાથે પરામર્શ માટે નીચે વિગત ભરીને મોકલો.</p>
+        <p style="text-align: center; color: var(--text-light); margin-bottom: 35px;" lang="hi">डॉ. अत्रि पटेल से परामर्श हेतु नीचे विवरण भरें।</p>
+
+        <form id="questionForm" onsubmit="handleFormSubmit(event)">
+            <input type="hidden" name="access_key" value="1812d679-2d13-42ed-8dc8-901565895ace">
+            <input type="hidden" name="subject" value="New Neurology Appointment Enquiry for Dr. Atri Patel">
+            <input type="checkbox" name="botcheck" id="" style="display: none;">
+
+            <div class="form-grid">
+                <!-- Patient Name -->
+                <div class="form-group">
+                    <label for="name">
+                        <span lang="en">Patient Full Name</span>
+                        <span lang="gu">દર્દીનું પૂરું નામ</span>
+                        <span lang="hi">रोगी का पूरा नाम</span>
+                    </label>
+                    <input type="text" id="name" name="name" required placeholder="Full Name">
+                </div>
+                <!-- Phone Number -->
+                <div class="form-group">
+                    <label for="phone">
+                        <span lang="en">Mobile / Phone Number</span>
+                        <span lang="gu">મોબાઇલ નંબર</span>
+                        <span lang="hi">मोबाइल नंबर</span>
+                    </label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+91 95585 25253">
+                </div>
+                <!-- Preferred Location -->
+                <div class="form-group">
+                    <label for="location">
+                        <span lang="en">Preferred Hospital / OPD</span>
+                        <span lang="gu">પસંદગીનું સ્થળ</span>
+                        <span lang="hi">पसंदीदा अस्पताल</span>
+                    </label>
+                    <select id="location" name="location" required>
+                        <option value="SAL Hospital (Science City)">SAL Hospital (Science City)</option>
+                        <option value="Rhythm Hospital (Kadi)">Rhythm Hospital (Kadi)</option>
+                    </select>
+                </div>
+                <!-- Preferred Date -->
+                <div class="form-group">
+                    <label for="date">
+                        <span lang="en">Preferred Appointment Date</span>
+                        <span lang="gu">પસંદગીની તારીખ</span>
+                        <span lang="hi">પસંદગીની તારીખ</span>
+                    </label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <!-- Message / Symptoms -->
+                <div class="form-group form-group-full">
+                    <label for="message">
+                        <span lang="en">Symptoms / Medical Query</span>
+                        <span lang="gu">તકલીફ / પ્રશ્નની વિગત</span>
+                        <span lang="hi">समस्या / प्रश्न का विवरण</span>
+                    </label>
+                    <textarea id="message" name="message" rows="4" required placeholder="Describe your neurological health problem or symptoms..."></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="form-submit-btn" id="submitBtn">
+                <i class="fas fa-paper-plane"></i>
+                <span lang="en">Submit Appointment Request</span>
+                <span lang="gu">એપોઈન્ટમેન્ટ રિક્વેસ્ટ મોકલો</span>
+                <span lang="hi">अपॉइंटमेंट सबमिट करें</span>
+            </button>
+
+            <div id="formFeedback" class="form-message"></div>
+        </form>
     </div>
 </section>
 
+<!-- Rich Footer Section -->
 <footer>
-    <div class="social-icons">
-        <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://instagram.com/YOUR_PROFILE" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.practo.com/ahmedabad/doctor/dr-atri-patel-neurologist" class="practo-badge" target="_blank">
-            <i class="fas fa-check-circle" style="color: #2ecc71;"></i> Practo Verified
-        </a>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <div class="footer-logo">
+                <div class="footer-logo-icon">AP</div>
+                <div class="footer-logo-text">Dr. Atri Patel</div>
+            </div>
+            <p lang="en">Consultant Neurophysician | DM Neurology Gold Medalist.<br></p>
+            <p lang="gu">કન્સલ્ટન્ટ ન્યુરોફિઝિશિયન | ગોલ્ડ મેડાલિસ્ટ.<br></p>
+            <p lang="hi">कंसल्टेंट न्यूरोफिजिशियन | गोल्ड मेडलिस्ट।<br></p>
+
+        </div>
+
+        <div class="footer-col">
+            <h4 lang="en">Quick Links</h4>
+            <h4 lang="gu">ઝડપી લિંક્સ</h4>
+            <h4 lang="hi">त्वरित लिंक्स</h4>
+            <ul>
+                <li><a href="#about"><span lang="en">About Dr. Atri Patel</span><span lang="gu">તબીબી પરિચય</span><span lang="hi">परिचय</span></a></li>
+                <li><a href="#services"><span lang="en">Services & Specialties</span><span lang="gu">સારવાર અને સેવાઓ</span><span lang="hi">सेवाएं</span></a></li>
+                <li><a href="#locations"><span lang="en">OPD Timings</span><span lang="gu">ઓપીડી સમય</span><span lang="hi">ઓપીડી સમય</span></a></li>
+                <li><a href="#faq"><span lang="en">FAQs</span><span lang="gu">પ્રશ્નોત્તરી</span><span lang="hi">प्रश्न-उत्तर</span></a></li>
+                <li><a href="#contact"><span lang="en">Book Appointment</span><span lang="gu">એપોઈન્ટમેન્ટ</span><span lang="hi">अपॉइंटमेंट</span></a></li>
+                <li><a href="#gallery"><span lang="en">Gallery</span><span lang="gu">ગેલેરી</span><span lang="hi">ગેલરી</span></a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4 lang="en">Hospitals & OPD</h4>
+            <h4 lang="gu">હોસ્પિટલ માહિતી</h4>
+            <h4 lang="hi">અસ્પતાલ જાણકારી</h4>
+            <p><i class="fas fa-hospital" style="margin-right:8px; color: var(--secondary);"></i> SAL Hospital, Sola, Ahmedabad</p>
+            <p><i class="fas fa-hospital" style="margin-right:8px; color: var(--secondary);"></i> Rhythm Hospital, Kadi</p>
+            <p><i class="fab fa-whatsapp" style="margin-right:8px; color: var(--secondary);"></i> +91 95585 25253</p>
+            <p class="footer-email"><i class="fas fa-envelope" style="margin-right:8px; color: var(--secondary);"></i> dratripatel.neurology@gmail.com</p>
+            <p><i class="fas fa-clock" style="margin-right:8px; color: var(--secondary);"></i> SAL: Mon - Sat, 9:00 AM - 1:00 PM and 4:00 PM - 8:00 PM</p>
+            <p><i class="fas fa-clock" style="margin-right:8px; color: var(--secondary);"></i> Rhythm: Tuesday, 9:00 AM - 12:00 PM</p>
+        </div>
+
+        <div class="footer-col">
+            <h4 lang="en">Connect</h4>
+            <h4 lang="gu">સોશિયલ મીડિયા</h4>
+            <h4 lang="hi">સોશિયલ મીડિયા</h4>
+            <div class="footer-social-icons">
+                <a href="https://www.linkedin.com/in/dr-atri-patel-a97914aa/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/dratripatel.neuro/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <span class="social-icon" title="YouTube" role="img" aria-label="YouTube"><i class="fab fa-youtube"></i></span>
+            </div>
+        </div>
     </div>
-    <p>&copy; 2024 Dr. Atri Patel | Consultant Neurophysician</p>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Dr. Atri Patel. All Rights Reserved. | Consultant Neurophysician</p>
+    </div>
 </footer>
 
-<a href="tel:+910000000000" class="mobile-bar">
+<!-- Floating WhatsApp Chat Button -->
+<a href="https://wa.me/919558525253?text=Hello%20Dr.%20Atri%20Patel,%20I%20would%20like%20to%20book%20a%20Neurology%20consultation." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Mobile Sticky Booking Call Bar -->
+<a href="tel:+919558525253" class="mobile-bar">
     <i class="fas fa-phone-alt" style="margin-right:10px;"></i> 
-    <span lang="en">Call for Appointment</span><span lang="gu">એપોઈન્ટમેન્ટ માટે ફોન કરો</span>
+    <span lang="en">Call for Appointment: +91 95585 25253</span>
+    <span lang="gu">એપોઈન્ટમેન્ટ માટે કોલ કરો: +91 95585 25253</span>
+    <span lang="hi">अपॉइंटमेंट के लिए कॉल करें: +91 95585 25253</span>
 </a>
 
 <script>
-    function toggleLang() {
-        const body = document.body;
-        const btn = document.getElementById('langBtn');
-        if (body.classList.contains('gujarati-mode')) {
-            body.classList.remove('gujarati-mode');
-            btn.innerText = "ગુજરાતી";
+    function setLanguage(lang) {
+        document.body.className = '';
+        document.body.classList.add('lang-' + lang);
+
+        document.getElementById('btn-lang-en').classList.remove('active');
+        document.getElementById('btn-lang-gu').classList.remove('active');
+        document.getElementById('btn-lang-hi').classList.remove('active');
+
+        const activeBtn = document.getElementById('btn-lang-' + lang);
+        if (activeBtn) activeBtn.classList.add('active');
+
+        updateFormPlaceholders(lang);
+    }
+
+    function updateFormPlaceholders(lang) {
+        const nameInput = document.getElementById('name');
+        const phoneInput = document.getElementById('phone');
+        const messageInput = document.getElementById('message');
+
+        if (lang === 'gu') {
+            if (nameInput) nameInput.placeholder = "દર્દીનું પૂરું નામ લખો";
+            if (phoneInput) phoneInput.placeholder = "+91 95585 25253";
+            if (messageInput) messageInput.placeholder = "તમારો પ્રશ્ન અથવા લક્ષણો અહીં લખો...";
+        } else if (lang === 'hi') {
+            if (nameInput) nameInput.placeholder = "रोगी का पूरा नाम लिखें";
+            if (phoneInput) phoneInput.placeholder = "+91 95585 25253";
+            if (messageInput) messageInput.placeholder = "अपनी बीमारी या लक्षण लिखें...";
         } else {
-            body.classList.add('gujarati-mode');
-            btn.innerText = "English";
+            if (nameInput) nameInput.placeholder = "Full Name";
+            if (phoneInput) phoneInput.placeholder = "+91 95585 25253";
+            if (messageInput) messageInput.placeholder = "Describe your health problem or symptoms...";
         }
+    }
+
+    function toggleFaq(header) {
+        const item = header.parentElement;
+        const isActive = item.classList.contains('active');
+
+        document.querySelectorAll('.faq-item').forEach(faq => {
+            faq.classList.remove('active');
+        });
+
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    }
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+
+        const form = document.getElementById('questionForm');
+        const feedback = document.getElementById('formFeedback');
+        const submitBtn = document.getElementById('submitBtn');
+        const currentLang = document.body.className.replace('lang-', '') || 'en';
+
+        submitBtn.disabled = true;
+        feedback.className = 'form-message';
+        feedback.style.display = 'block';
+
+        if (currentLang === 'gu') {
+            feedback.innerText = "મોકલી રહ્યું છે... કૃપા કરીને રાહ જુઓ.";
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>મોકલી રહ્યું છે...</span>';
+        } else if (currentLang === 'hi') {
+            feedback.innerText = "भेजा जा रहा है... कृपया प्रतीक्षा करें।";
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>भेजा जा रहा है...</span>';
+        } else {
+            feedback.innerText = "Submitting appointment request... Please wait.";
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Submitting...</span>';
+        }
+
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let jsonRes = await response.json();
+            if (response.status == 200) {
+                feedback.className = 'form-message success';
+                if (currentLang === 'gu') {
+                    feedback.innerText = "આભાર! તમારી એપોઈન્ટમેન્ટ રિક્વેસ્ટ સફળતાપૂર્વક મોકલવામાં આવી છે. અમે ટૂંક સમયમાં તમારો સંપર્ક કરીશું.";
+                } else if (currentLang === 'hi') {
+                    feedback.innerText = "धन्यवाद! आपका अपॉइंटमेंट अनुरोध सफलतापूर्वक भेज दिया गया है। हम जल्द ही आपसे संपर्क करेंगे।";
+                } else {
+                    feedback.innerText = "Thank you! Your appointment request has been submitted successfully. We will call you back shortly.";
+                }
+                form.reset();
+            } else {
+                feedback.className = 'form-message error';
+                feedback.innerText = "Error: " + (jsonRes.message || "Unable to submit form.");
+            }
+        })
+        .catch(error => {
+            feedback.className = 'form-message error';
+            if (currentLang === 'gu') {
+                feedback.innerText = "કનેક્શન ભૂલ. કૃપા કરીને પછીથી પ્રયાસ કરો.";
+            } else if (currentLang === 'hi') {
+                feedback.innerText = "कनेक्शन एरर। कृपया पुनः प्रयास करें।";
+            } else {
+                feedback.innerText = "Connection error. Please try again later.";
+            }
+        })
+        .then(() => {
+            submitBtn.disabled = false;
+            if (currentLang === 'gu') {
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>એપોઈન્ટમેન્ટ રિક્વેસ્ટ મોકલો</span>';
+            } else if (currentLang === 'hi') {
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>અપોઈન્ટમેન્ટ રિક્વેસ્ટ મોકલો</span>';
+            } else {
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>Submit Appointment Request</span>';
+            }
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 6000);
+        });
     }
 </script>
 
